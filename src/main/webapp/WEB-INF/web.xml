@@ -14,9 +14,18 @@
   	<servlet-name>SearcherServlet</servlet-name>
   	<servlet-class>com.linkx.servlet.SearcherServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
   	<servlet-name>SearcherServlet</servlet-name>
   	<url-pattern>/doSearch</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>WeixinSignServlet</servlet-name>
+  	<servlet-class>com.linkx.servlet.WeixinSignServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>WeixinSignServlet</servlet-name>
+  	<url-pattern>/wxSign</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
