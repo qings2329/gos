@@ -85,7 +85,7 @@
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?c8148fa8f0f7d8523ca6a0791309c4ec";
+  hm.src = "//hm.baidu.com/hm.js?84ad75531a92ba8433ad6e9013c8bade";
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
