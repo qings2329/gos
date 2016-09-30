@@ -40,6 +40,11 @@ public class SearcherServlet extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+//		if(true){
+//			throw new ServletException("测试前端处理异常的逻辑");
+//		}
+		
 		req.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html;charset=utf-8");
 		StringBuffer sb = new StringBuffer();
@@ -114,6 +119,7 @@ public class SearcherServlet extends HttpServlet{
 				out.println(jsoncallback+"(" + ret + ")");
 			} else {
 				out.println(ret);
+//				out.println("测试前端处理JSON错误的逻辑");
 			}
 			
 			out.flush();

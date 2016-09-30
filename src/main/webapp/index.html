@@ -47,8 +47,13 @@ var _hmt = _hmt || [];
 <div class="box_outer">
 <div class="box_body">
 <div align="center" style="padding-top: 100px;">
-<img src="images/logo.png" alt="网盘"/>
+  <img src="images/logo.png" alt="网盘"/>
 </div>
+
+<div style="text-align:center">
+	<a href="javascript:void(0)" style="color:red; font-size:15px;">Tips: 关键词不宜过长 </a>
+</div>
+
 <table class="sch">
 	<tbody>
 		<tr id='test'>
@@ -57,24 +62,23 @@ var _hmt = _hmt || [];
 			<form id="cse-search-box" name="f"  action="result.jsp" method="post" target="_blank"  onsubmit="return checkForm()">
 
 					<td width="373px">
-					<br/>
-					<input type="hidden" name="wp" id="wp" value="0" />
-				    <input type="hidden" name="op" id="op" value="0" />
-				    <input type="hidden" name="ty" id="ty" value="gn" />
-					<div id="sugOut"><input   name="q"  value=""  maxlength=100
-						id="q" autocomplete="off">
-						<br>
-					<div id="sug"></div>
-					</div>
+						<br/>
+						<input type="hidden" name="wp" id="wp" value="0" />
+					    <input type="hidden" name="op" id="op" value="0" />
+					    <input type="hidden" name="ty" id="ty" value="gn" />
+						<div id="sugOut">
+							<input   name="q"  value=""  maxlength=100 id="q" autocomplete="off">
+							<div id="sug"></div>
+						</div>
 					</td>
 					<td>
 					<br/>
 					<button type="submit">网盘一下</button>
 					</td>
-					</form>
+			</form>
 			<td align=right id="hao_search_content" width="360px">
 			</td>
-			<td class="last_td"></td>
+
 		</tr>
 	</tbody>
 </table>

@@ -94,6 +94,11 @@ var _hmt = _hmt || [];
 </head>
 <body >
 <div align="center" style="padding-top: 10px;">
+
+<div style="text-align:center">
+	<a href="http://link-x.ml/newsmth/" style="color:red; font-size:20px; text-decoration: underline;">重要通知: 网站迁移至 http://link-x.ml/newsmth/ 。 点击跳转 ！ </a>
+</div>
+
 <table width="960px" align="center"   cellpadding="5px">
 	<tr>
 		<td colspan="2">
