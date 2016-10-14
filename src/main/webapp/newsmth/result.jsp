@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ page import="com.linkx.util.ResponseUtil" %>
 <%
 	String query = request.getParameter("q") == null ? "" : request.getParameter("q").trim();
-	String method = request.getMethod();
-	if("post".equalsIgnoreCase(method)) {
+	if(ResponseUtil.isMessyCode(query)) {
 		query = new String(query.getBytes("ISO-8859-1"), "utf-8");
 	}
 %>	

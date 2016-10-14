@@ -9,7 +9,6 @@ import java.net.ConnectException;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,14 +16,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
 
 import com.linkx.util.ResponseUtil;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-public class SearcherServlet extends HttpServlet{
+public class SearcherServlet extends HttpServlet {
 
 	/**
 	 * 
@@ -79,7 +77,7 @@ public class SearcherServlet extends HttpServlet{
 			String logInfo = " $" + type + "$ , Query Word: ##" + queryWord + "##, ip: " + ResponseUtil.getIpAddress(req);
 			ResponseUtil.log.info(logInfo);
 			
-			String start=req.getParameter("start"); // 起始页
+			int start = ResponseUtil.get(req, "start", 0); // 起始页
 			String urlStr ="https://www.googleapis.com/customsearch/v1element?key=AIzaSyCVAXiUzRYsML1Pv6RwSG1gunmMikTzQqY&rsz=filtered_cse&num=10&hl=zh_CN&prettyPrint=false&source=gcsc&gss=.com&sig=8bdfc79787aa2b2b1ac464140255872c&start="+start+"&cx=014581366121687027595:2xkbufxxeua&q="+q+"&sort=&googlehost=www.google.com";
 			if("newsmth".equals(type)) {
 				urlStr = "https://www.googleapis.com/customsearch/v1element?key=AIzaSyCVAXiUzRYsML1Pv6RwSG1gunmMikTzQqY&rsz=filtered_cse&num=10&hl=zh_CN&prettyPrint=false&source=gcsc&gss=.com&sig=8bdfc79787aa2b2b1ac464140255872c&start="+start+"&cx=014581366121687027595:impy7hjb794&q="+q+"&sort=&googlehost=www.google.com";

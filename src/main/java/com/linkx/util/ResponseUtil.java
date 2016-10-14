@@ -7,11 +7,22 @@ import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.math.NumberUtils;
 import org.apache.log4j.Logger;
 
 public class ResponseUtil {
 	
 	public static Logger log = Logger.getLogger("ResponseUtil");
+	
+	public static int get(HttpServletRequest request, String key, int defaultValue) {
+		int ret = 0;
+		String value = request.getParameter(key);
+		if(StringUtils.isNotBlank(value)) {
+			ret = NumberUtils.toInt(value);
+		}
+		return ret;
+	}
 
 	public static void write(HttpServletResponse response,Object o)throws Exception{
 		response.setContentType("text/html;charset=utf-8");
