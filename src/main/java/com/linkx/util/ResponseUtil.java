@@ -15,8 +15,14 @@ public class ResponseUtil {
 	
 	public static Logger log = Logger.getLogger("ResponseUtil");
 	
+	public static String get(HttpServletRequest request, String key, String defaultValue) {
+		String ret = null;
+		
+		return ret;
+	}
+	
 	public static int get(HttpServletRequest request, String key, int defaultValue) {
-		int ret = 0;
+		int ret = defaultValue;
 		String value = request.getParameter(key);
 		if(StringUtils.isNotBlank(value)) {
 			ret = NumberUtils.toInt(value);
@@ -106,5 +112,10 @@ public class ResponseUtil {
         System.out.println(isMessyCode("Ã©Å¸Â©Ã©Â¡ÂºÃ¥Â¹Â³"));
         System.out.println(isMessyCode("你好"));
 //        System.out.println(isMessyCode("????"));
+        
+        // 对这种情况居然无法识别
+        System.out.println(isMessyCode("qingersm å¨å¥"));
+        
+        System.out.println(isMessyCode("å¨å¥"));
     }
 }

@@ -3,8 +3,7 @@
 <%@ page import="com.linkx.util.ResponseUtil" %>
 <%
 	String query = request.getParameter("q") == null ? "" : request.getParameter("q").trim();
-	String method = request.getMethod();
-	if(ResponseUtil.isMessyCode(query) || "post".equalsIgnoreCase(method)) {
+	if(ResponseUtil.isMessyCode(query)) {
 		query = new String(query.getBytes("ISO-8859-1"), "utf-8");
 	}
 %>	

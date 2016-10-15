@@ -33,6 +33,6 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>GoServlet</servlet-name>
-    <url-pattern>/qdSearch</url-pattern>
+    <url-pattern>/qd</url-pattern>
   </servlet-mapping>
 </web-app>
