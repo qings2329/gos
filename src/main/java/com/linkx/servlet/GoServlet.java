@@ -44,9 +44,9 @@ public class GoServlet extends HttpServlet {
 //			String q = URLEncoder.encode(finalString, "utf-8");
 
 			String uri = request.getRequestURI();
+			String params = request.getQueryString();
 
-
-			ret = HttpUtils.request(googleSearch + uri, "GET", null);
+			ret = HttpUtils.request(googleSearch + uri + "?" + params, "GET", null);
 
 		} catch (Exception ex) {
 			ret = ex.toString();
