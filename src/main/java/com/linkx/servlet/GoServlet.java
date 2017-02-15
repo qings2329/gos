@@ -52,7 +52,7 @@ public class GoServlet extends HttpServlet {
 				params = "?" + params + "&gws_rd=cr&newwindow=1";
 			}
 
-			ret = HttpUtils.request(googleSearch + uri + "?" + params, "GET", null);
+			ret = HttpUtils.request(googleSearch + uri + params, "GET", null);
 
 		} catch (Exception ex) {
 			ret = ex.toString();
