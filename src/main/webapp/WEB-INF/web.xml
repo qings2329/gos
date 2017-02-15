@@ -33,6 +33,6 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>GoServlet</servlet-name>
-    <url-pattern>/go</url-pattern>
+    <url-pattern>/search</url-pattern>
   </servlet-mapping>
 </web-app>

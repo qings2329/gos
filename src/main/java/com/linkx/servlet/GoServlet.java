@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 public class GoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private static final String googleSearch = "https://www.google.com/search?q=";
+	private static final String googleSearch = "https://www.google.com";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -33,16 +33,20 @@ public class GoServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String ret = "<html><body>test</body></html>";
 		try{
-			String original = request.getParameter("q");
-			if(StringUtils.isBlank(original)){
-				throw new Exception("key word can't be empty!");
-			}
-			String finalString = original.trim();
-			if(ResponseUtil.isMessyCode(finalString)) {
-				finalString = new String(finalString.getBytes("ISO-8859-1"), "utf-8");
-			}
-			String q = URLEncoder.encode(finalString, "utf-8");
-			ret = HttpUtils.request(googleSearch + q, "GET", null);
+//			String original = request.getParameter("q");
+//			if(StringUtils.isBlank(original)){
+//				throw new Exception("key word can't be empty!");
+//			}
+//			String finalString = original.trim();
+//			if(ResponseUtil.isMessyCode(finalString)) {
+//				finalString = new String(finalString.getBytes("ISO-8859-1"), "utf-8");
+//			}
+//			String q = URLEncoder.encode(finalString, "utf-8");
+
+			String uri = request.getRequestURI();
+
+
+			ret = HttpUtils.request(googleSearch + uri, "GET", null);
 
 		} catch (Exception ex) {
 			ret = ex.toString();
