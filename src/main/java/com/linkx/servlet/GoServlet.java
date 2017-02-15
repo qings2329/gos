@@ -41,8 +41,8 @@ public class GoServlet extends HttpServlet {
 			if(ResponseUtil.isMessyCode(finalString)) {
 				finalString = new String(finalString.getBytes("ISO-8859-1"), "utf-8");
 			}
-
-			ret = HttpUtils.request(googleSearch + finalString, "GET", null);
+			String q = URLEncoder.encode(finalString, "utf-8");
+			ret = HttpUtils.request(googleSearch + q, "GET", null);
 
 		} catch (Exception ex) {
 			ret = ex.toString();
