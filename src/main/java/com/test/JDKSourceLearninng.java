@@ -73,6 +73,7 @@ public class JDKSourceLearninng {
 		// 几种map
 		Hashtable<String, Integer> hashtable = new Hashtable<String, Integer>();
 		hashtable.get("");
+		hashtable.put(null, null);
 
 		Map<String, Integer> hashMap = new HashMap<String, Integer>();
 		hashMap.put("", null);

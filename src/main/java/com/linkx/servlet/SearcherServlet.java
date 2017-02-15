@@ -69,7 +69,7 @@ public class SearcherServlet extends HttpServlet {
 			if("evilcode".equalsIgnoreCase(queryWord)) {
 				queryWord = "qingersm";
 			}
-			String q=URLEncoder.encode(queryWord, "utf-8");; // 查询数据
+			String q=URLEncoder.encode(queryWord, "utf-8"); // 查询数据
 			
 //			String consoleInfo = new Date().toLocaleString() + " $" + type + "$ , Query Word: ##" + queryWord + "##, ip: " + ResponseUtil.getIpAddress(req);
 //			System.out.println("Console: " + consoleInfo);

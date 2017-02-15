@@ -1,6 +1,12 @@
 package com.linkx.servlet;
 
+import com.linkx.util.HttpUtils;
+import com.linkx.util.ResponseUtil;
+import org.apache.commons.lang.StringUtils;
+
 import java.io.IOException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class GoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
+	private static final String googleSearch = "https://www.google.com/search?q=";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -23,10 +31,24 @@ public class GoServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String ret = "";
+		try{
+			String original = request.getParameter("q");
+			if(StringUtils.isBlank(original)){
+//			throw new Exception("key word can't be empty!");
+			}
+			String finalString = original.trim();
+			if(ResponseUtil.isMessyCode(finalString)) {
+				finalString = new String(finalString.getBytes("ISO-8859-1"), "utf-8");
+			}
 
-		
-		
-		response.getWriter().append("Served at: test z" + System.currentTimeMillis()).append(request.getContextPath());
+			ret = HttpUtils.request(googleSearch + finalString, "GET", null);
+
+		} catch (Exception ex) {
+
+		}
+
+		response.getWriter().append(ret).append(request.getContextPath());
 	}
 
 	/**
