@@ -31,11 +31,11 @@ public class GoServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String ret = "";
+		String ret = "<html><body>test</body></html>";
 		try{
 			String original = request.getParameter("q");
 			if(StringUtils.isBlank(original)){
-//			throw new Exception("key word can't be empty!");
+				throw new Exception("key word can't be empty!");
 			}
 			String finalString = original.trim();
 			if(ResponseUtil.isMessyCode(finalString)) {
@@ -45,9 +45,11 @@ public class GoServlet extends HttpServlet {
 			ret = HttpUtils.request(googleSearch + finalString, "GET", null);
 
 		} catch (Exception ex) {
+			ret = ex.toString();
+		} finally {
 
 		}
-
+		response.setContentType("text/html");
 		response.getWriter().append(ret).append(request.getContextPath());
 	}
 
