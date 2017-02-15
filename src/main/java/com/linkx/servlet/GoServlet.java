@@ -46,6 +46,12 @@ public class GoServlet extends HttpServlet {
 			String uri = request.getRequestURI();
 			String params = request.getQueryString();
 
+			if(params == null) {
+				params = "?gws_rd=cr&newwindow=1";
+			} else {
+				params = "?" + params + "&gws_rd=cr&newwindow=1";
+			}
+
 			ret = HttpUtils.request(googleSearch + uri + "?" + params, "GET", null);
 
 		} catch (Exception ex) {
