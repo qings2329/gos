@@ -35,4 +35,8 @@
     <servlet-name>GoServlet</servlet-name>
     <url-pattern>/search</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GoServlet</servlet-name>
+    <url-pattern>/url</url-pattern>
+  </servlet-mapping>
 </web-app>
