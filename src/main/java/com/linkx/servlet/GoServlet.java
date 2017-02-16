@@ -59,7 +59,8 @@ public class GoServlet extends HttpServlet {
 		} finally {
 
 		}
-		response.setContentType("text/html");
+
+		response.setContentType("text/html;charset=utf-8");
 		response.getWriter().append(ret).append(request.getContextPath());
 	}
 
