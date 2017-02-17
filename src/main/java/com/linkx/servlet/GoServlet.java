@@ -67,9 +67,9 @@ public class GoServlet extends HttpServlet {
 				params = "?gws_rd=cr&newwindow=1&" + params;
 			}
 
-//			ret = HttpUtils.request(googleSearch + uri + params, "GET", null);
+			ret = HttpUtils.request(googleSearch + uri + params, "GET", null);
 
-			ret = TEST_HTML;
+//			ret = TEST_HTML;
 
 			Parser parser = new Parser(ret);
 			NodeFilter divNodeFilter = new TagNameFilter("div");
