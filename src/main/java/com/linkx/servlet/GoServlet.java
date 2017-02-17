@@ -77,7 +77,7 @@ public class GoServlet extends HttpServlet {
 			String resultList = "";
 			if(nodes != null) {
 				resultList = nodes.toHtml().replace("/url?q=", "");
-                resultList = resultList.replace("&amp;sa=", "?&amp;sa=");
+                resultList = resultList.replace("&amp;sa=", "?sa=");
 			}
 
             NodeFilter divNodeFilter2 = new TagNameFilter("div");
