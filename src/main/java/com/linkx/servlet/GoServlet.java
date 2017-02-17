@@ -3,6 +3,12 @@ package com.linkx.servlet;
 import com.linkx.util.HttpUtils;
 import com.linkx.util.ResponseUtil;
 import org.apache.commons.lang.StringUtils;
+import org.htmlparser.NodeFilter;
+import org.htmlparser.Parser;
+import org.htmlparser.filters.AndFilter;
+import org.htmlparser.filters.HasAttributeFilter;
+import org.htmlparser.filters.TagNameFilter;
+import org.htmlparser.util.NodeList;
 
 import java.io.IOException;
 import java.net.URLDecoder;
@@ -31,7 +37,7 @@ public class GoServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String ret = "<html><body>test</body></html>";
+		String ret = "<html><body>Sorry, Something Wrong Happens !</body></html>";
 		try{
 //			String original = request.getParameter("q");
 //			if(StringUtils.isBlank(original)){
@@ -43,6 +49,7 @@ public class GoServlet extends HttpServlet {
 //			}
 //			String q = URLEncoder.encode(finalString, "utf-8");
 
+
 			String uri = request.getRequestURI();
 			String params = request.getQueryString();
 
@@ -53,6 +60,16 @@ public class GoServlet extends HttpServlet {
 			}
 
 			ret = HttpUtils.request(googleSearch + uri + params, "GET", null);
+
+			Parser parser = new Parser(ret);
+			NodeFilter divNodeFilter = new TagNameFilter("div");
+			NodeFilter attrNodeFilter = new HasAttributeFilter("id", "search");
+			NodeFilter filter = new AndFilter(divNodeFilter, attrNodeFilter);
+
+			NodeList nodes = parser.extractAllNodesThatMatch(filter);
+			if(nodes != null) {
+				ret = nodes.toHtml();
+			}
 
 		} catch (Exception ex) {
 			ret = ex.toString();

@@ -24,6 +24,8 @@ public class HttpRequestTest {
 		logger.info(ret);
 		
 	}
+
+
 	
 	
 }
