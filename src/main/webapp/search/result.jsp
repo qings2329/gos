@@ -115,7 +115,7 @@ var _hmt = _hmt || [];
 					<div id="sugOut"><input   id="q" name="q"  value="<%=query%>"  maxlength=100
 						 autocomplete="off">
 						<br>
-					<div id="sug"></div>
+						<div id="sug"></div>
 					</div>
 					</td>
 					<td style="padding-bottom: 12px; ">
