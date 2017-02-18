@@ -40,6 +40,6 @@ $(function () {
         }
     })
 
-    $("#agent-cb").click(agentModeSwitch);
+    // $("#agent-cb").click(agentModeSwitch);
 
 })
