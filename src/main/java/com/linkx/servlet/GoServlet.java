@@ -60,6 +60,7 @@ public class GoServlet extends HttpServlet {
 
 			if(params == null) {
                 response.sendRedirect("/search/");
+                return;
 			} else {
 				params = "?gws_rd=cr&newwindow=1&" + params;
 			}
@@ -68,6 +69,10 @@ public class GoServlet extends HttpServlet {
 
 //			ret = TEST_HTML;
 
+            if(ret == null) {
+                response.sendRedirect("/search/");
+                return;
+            }
 			Parser parser = new Parser(ret);
 			NodeFilter divNodeFilter = new TagNameFilter("div");
 			NodeFilter attrNodeFilter = new HasAttributeFilter("id", "search");
@@ -84,25 +89,31 @@ public class GoServlet extends HttpServlet {
             NodeFilter attrNodeFilter2 = new HasAttributeFilter("id", "foot");
             NodeFilter filter2 = new AndFilter(divNodeFilter2, attrNodeFilter2);
             parser.reset();
+            String pageIndex = "";
+
             NodeList footNodes = parser.extractAllNodesThatMatch(filter2);
+            if(footNodes != null && footNodes.size() > 0) {
+                //NodeList tableNode = footNodes.extractAllNodesThatMatch(new TagNameFilter("table"));
+                Node tableNode = footNodes.elementAt(0).getFirstChild();
 
-//			NodeList tableNode = footNodes.extractAllNodesThatMatch(new TagNameFilter("table"));
-            Node tableNode = footNodes.elementAt(0).getFirstChild();
-			String pageIndex = "";
-			if(tableNode != null) {
-				pageIndex = tableNode.toHtml();
-			}
-
+                if(tableNode != null) {
+                    pageIndex = tableNode.toHtml();
+                }
+            }
 
             NodeFilter divNodeFilter3 = new TagNameFilter("input");
             NodeFilter attrNodeFilter3 = new HasAttributeFilter("id", "sbhost");
             NodeFilter filter3 = new AndFilter(divNodeFilter3, attrNodeFilter3);
             parser.reset();
-            NodeList inputNode = parser.extractAllNodesThatMatch(filter3);
+            NodeList inputNodeList = parser.extractAllNodesThatMatch(filter3);
+            String qWord = "";
+            if(inputNodeList != null && inputNodeList.size() > 0) {
+                qWord = ((InputTag)inputNodeList.elementAt(0)).getAttribute("value");
+            }
 
 
 //			String.format(ret, pageIndex, pageIndex);
-            ret = Htmlpart1 + ((InputTag)inputNode.elementAt(0)).getAttribute("value") + Htmlpart2 + resultList + Htmlpart3 + pageIndex + Htmlpart4;
+            ret = Htmlpart1 + qWord + Htmlpart2 + resultList + Htmlpart3 + pageIndex + Htmlpart4;
 
 		} catch (Exception ex) {
 			ret = ex.toString();
