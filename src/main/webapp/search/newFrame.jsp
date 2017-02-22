@@ -1,43 +1,30 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
 <!doctype html>
 <html itemscope="" itemtype="http://schema.org/SearchResultsPage" lang="en">
 <head>
+    <link href="/images/Globe_earth_search.ico" rel="shortcut icon">
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-    <title>墙洞搜索</title>
+    <title><%=request.getAttribute("qWord")%> - 墙洞搜索</title>
     <link href="/css/base2.css" rel="stylesheet" type="text/css"/>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+    <script src="/js/search.js"></script>
+    <style>.gbh, .gbd {
+        border-top: 1px solid #c9d7f1;
+        font-size: 1px
+    }
 
-    <style>
+    .gbh {
+        height: 0;
+        position: absolute;
+        top: 24px;
+        width: 100%
+    }
 
-        .gbh, .gbd {
-            border-top: 1px solid #c9d7f1;
-            font-size: 1px
-        }
-
-        .gbh {
-            height: 0;
-            position: absolute;
-            top: 24px;
-            width: 100%
-        }
-
-        .gbi .gb4 {
-            color: #dd8e27 !important
-        }
-
-        .gbf .gb4 {
-            color: #900 !important
-        } </style>
-    <style>.star {
+    .star {
         float: left;
         margin-top: 1px;
         overflow: hidden
-    }
-
-    ._yhd {
-        font-size: 11px
-    }
-
-    .j {
-        width: 34em
     }
 
     body, td, div, .p, a {
@@ -165,7 +152,7 @@
         display: inline
     }
 
-    #tbd .tbt li {
+    #tbd.tbt li {
         display: block;
         font-size: 13px;
         line-height: 1.2;
@@ -199,7 +186,7 @@
         padding: 0 8px
     }
 
-    #topstuff .e {
+    #topstuff.e {
         padding-bottom: 6px
     }
 
@@ -225,11 +212,11 @@
         color: #1a0dab
     }
 
-    #tads .soc a:link {
+    #tads.soc a:link {
         color: #808080
     }
 
-    #tads ._AC a:link {
+    #tads._AC a:link {
         color: #808080
     }
 
@@ -329,7 +316,7 @@
         text-decoration: none
     }
 
-    #leftnav a:hover, #leftnav .tbou a:hover, .slk h3 a, a:hover {
+    #leftnav a:hover, #leftnav.tbou a:hover, .slk h3 a, a:hover {
         text-decoration: underline
     }
 
@@ -360,11 +347,11 @@
         padding: 0 8px 0 0
     }
 
-    #topstuff .e {
+    #topstuff.e {
         padding-top: 3px
     }
 
-    #topstuff .sp_cnt {
+    #topstuff.sp_cnt {
         padding-top: 6px
     }
 
@@ -380,7 +367,7 @@
         padding-top: 2px
     }
 
-    .slk .sld {
+    .slk.sld {
         margin-top: 2px;
         padding: 5px 0 5px 5px
     }
@@ -624,14 +611,9 @@
         overflow: hidden;
         position: relative;
         width: 100%
-    }
-
-    </style>
-
+    }</style>
 </head>
 <body class="hsrp" bgcolor="#ffffff" marginheight="0" marginwidth="0" topmargin="0">
-
-
 <div class=gbh style=left:0></div>
 <div class=gbh style=right:0></div>
 <table id="mn" border="0" cellpadding="0" cellspacing="0" style="position:relative">
@@ -643,7 +625,7 @@
     </tr>
     <tr>
         <td class="sfbgg" valign="top">
-            <div id="logocont"><h1><a href="#"></a></h1></div>
+            <div id="logocont"><h1><a href="/search/">Double Google</a></h1></div>
         </td>
         <td class="sfbgg" colspan="2" valign="top" style="padding-left:0px">
             <form action="/search" id="cse-search-box" method="GET" name="f"
@@ -655,15 +637,15 @@
                                 <table cellpadding="0" cellspacing="0">
                                     <tr>
                                         <td class="lst-td" width="555" valign="bottom">
-                                            <div id="sugOut" style="position:relative;zoom:1">
-                                                <input class="lst"
-                                                       value=""
-                                                       autocomplete="off" id="q"
-                                                       maxlength="2048" name="q"
-                                                       type="text">
+                                            <div id="sugOut" style="position:relative;zoom:1"><input class="lst"
+                                                                                                     autocomplete="off"
+                                                                                                     id="q"
+                                                                                                     maxlength="2048"
+                                                                                                     name="q"
+                                                                                                     type="text"
+                                                                                                     value="<%=request.getAttribute("qWord")%>">
                                                 <div id="sug"></div>
                                             </div>
-
                                         </td>
                                     </tr>
                                 </table>
@@ -672,19 +654,18 @@
                         <td>
                             <div class="ds">
                                 <div class="lsbb">
-                                    <button class="lsb" value="Search" name="btnG" type="submit">墙洞搜索
-                                    </button>
+                                    <button class="lsb" value="Search" name="btnG" type="submit">墙洞搜索</button>
                                 </div>
                             </div>
                         </td>
+                        <td><input type="checkbox" style="margin-left:15px; display:none;" id="agent-cb"
+                                   name="agent-cb"></td>
                     </tr>
                 </table>
-                <input name="newwindow" value="1" type="hidden">
-            </form>
+                <input name="newwindow" value="1" type="hidden"></form>
         </td>
         <td class="sfbgg">&nbsp;</td>
     </tr>
-
     <tbody data-jibp="h" data-jiis="uc" id="desktop-search">
     <style>._Bu, ._Bu a:link, ._Bu a:visited, a._Bu:link, a._Bu:visited {
         color: #808080
@@ -693,38 +674,35 @@
     ._Azf a {
         color: #777;
         text-decoration: none
-    }
-
-    </style>
+    }</style>
     <tr>
         <td id="leftnav" valign="top">
             <div><h2 class="hd">Search Options</h2>
-                <ul class="med" id="tbd">
-
-                </ul>
+                <ul class="med" id="tbd"></ul>
             </div>
         </td>
         <td valign="top">
             <div id="center_col">
                 <div class="sd" id="resultStats">&nbsp;</div>
-                %s
+                <%=request.getAttribute("resultList")%>
             </div>
             <div id="foot">
-                <table align="center" border="0" cellpadding="0" cellspacing="0" id="nav">
-                    <tbody>
-                    %s
-                    </tbody>
-                </table>
+                <%=request.getAttribute("pageIndex")%>
+                <div class="_cD" id="fll" style="margin:19px auto 19px auto;text-align:center">
+                    <p align="center" style="color:#1a0dab !important;">
+                        免责声明：本站只提供信息检索服务, 不存储任何内容。<br />
+                        如果有侵犯之处，及时联系我们整改。联系:qings2329@sina.com<br />
+                        Copyright&copy;2017-2018  墙洞搜索引擎<br />
+                    </p>
+                </div>
             </div>
         </td>
-
     </tr>
+
     </tbody>
 </table>
-
 </body>
 </html>
-
 <script type="text/javascript" src="/js/base.js"></script>
 <script>window._bd_share_config = {
     "common": {
@@ -741,12 +719,10 @@
     "selectShare": {"bdContainerClass": null, "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "weixin"]}
 };
 with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
-<script>
-    var _hmt = _hmt || [];
-    (function () {
-        var hm = document.createElement("script");
-        hm.src = "//hm.baidu.com/hm.js?84ad75531a92ba8433ad6e9013c8bade";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
+<script>var _hmt = _hmt || [];
+(function () {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?84ad75531a92ba8433ad6e9013c8bade";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s)
+})();</script>
