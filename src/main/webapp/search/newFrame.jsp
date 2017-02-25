@@ -5,6 +5,7 @@
 <head>
     <link href="/images/Globe_earth_search.ico" rel="shortcut icon">
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
     <title><%=request.getAttribute("qWord")%> - 墙洞搜索</title>
     <link href="/css/base2.css" rel="stylesheet" type="text/css"/>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
@@ -192,6 +193,10 @@
 
     .ac, .st {
         line-height: 1.24
+    }
+
+    .st b {
+        color: #dd4b39
     }
 
     .s {
@@ -538,7 +543,6 @@
     }
 
     .lst {
-        background: none;
         border: none;
         color: #000;
         font: 16px arial, sans-serif;

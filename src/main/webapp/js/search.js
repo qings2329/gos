@@ -39,7 +39,7 @@ $(function () {
             $(this).attr("param-data", params)
         }
     })
-    $(".st b").css("color", "#dd4b39");
+    //$(".st b").css("color", "#dd4b39");
     // $("#agent-cb").click(agentModeSwitch);
 
 })
