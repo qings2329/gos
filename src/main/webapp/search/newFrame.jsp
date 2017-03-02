@@ -9,7 +9,7 @@
     <title><%=request.getAttribute("qWord")%> - 墙洞搜索</title>
     <link href="/css/base2.css" rel="stylesheet" type="text/css"/>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
-    <script src="/js/search.js"></script>
+    <script src="/js/search2.js"></script>
     <style>.gbh, .gbd {
         border-top: 1px solid #c9d7f1;
         font-size: 1px
