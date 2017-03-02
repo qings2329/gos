@@ -730,3 +730,8 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(hm, s)
 })();</script>
+
+
+<iframe style="margin-top: 30px; display:none;" sframeborder="0" width="100%" scrolling="no" src="http://bitkan.com/news/topic/29461?bkuserid=28406&bkfrom=appshare&bktarget=weixin&from=groupmessage&isappinstalled=1">
+
+</iframe>
