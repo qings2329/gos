@@ -9,7 +9,7 @@
     <title><%=request.getAttribute("qWord")%> - 墙洞搜索</title>
     <link href="/css/base2.css" rel="stylesheet" type="text/css"/>
     <link href="/css/newFrame.css" rel="stylesheet" type="text/css"/>
-    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="/js/search2.js"></script>
 </head>
 <body class="hsrp" bgcolor="#ffffff" marginheight="0" marginwidth="0" topmargin="0">
