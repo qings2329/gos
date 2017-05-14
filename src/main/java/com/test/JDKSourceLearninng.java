@@ -1,5 +1,6 @@
 package com.test;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
@@ -55,10 +56,10 @@ public class JDKSourceLearninng {
 
 		JDKSourceLearninng instance = JDKSourceLearninng.getInstance();
 
-		boolean flag = false;
-		if(flag = true) {
-			return;
-		}
+//		boolean flag = false;
+//		if(flag = true) {
+//			return;
+//		}
 
 		String str = new String();
 
@@ -73,7 +74,8 @@ public class JDKSourceLearninng {
 		// 几种map
 		Hashtable<String, Integer> hashtable = new Hashtable<String, Integer>();
 		hashtable.get("");
-		hashtable.put(null, null);
+		// hashtable key value 不能为空
+//		hashtable.put(null, null);
 
 		Map<String, Integer> hashMap = new HashMap<String, Integer>();
 		hashMap.put("", null);
@@ -88,10 +90,15 @@ public class JDKSourceLearninng {
 
 		Set treeSet = new TreeSet();
 		treeSet.add("");
+		
+		
 
 		Set hashSet = new HashSet();
-		hashSet.add("");
-
+		hashSet.add("1");
+		hashSet.add(2);
+		
+		System.out.println( "hashset: " + Arrays.toString(hashSet.toArray()) );
+		
 
 		// 线程局部变量
 		ThreadLocal tl = new ThreadLocal<>();
