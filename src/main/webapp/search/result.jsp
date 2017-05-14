@@ -14,7 +14,7 @@
 <link href="/images/search.ico" rel="shortcut icon">
 <title>水榴搜索</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="keywords" content="水榴搜索|欧洲杯|奥运会" />
+<meta name="keywords" content="水榴搜索,欧洲杯,奥运会" />
 <meta name="description" content="水榴搜索，社区资源" />
 <META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
 <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
