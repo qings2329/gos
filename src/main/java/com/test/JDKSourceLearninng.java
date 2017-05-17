@@ -62,7 +62,8 @@ public class JDKSourceLearninng {
 //		}
 
 		String str = new String();
-
+		str.equals("");
+		str.hashCode();
 
 		Long.valueOf("1");
 		Long.parseLong("2");
@@ -70,6 +71,7 @@ public class JDKSourceLearninng {
 
 		Object obj = new Object();
 		obj.equals(null);
+		obj.hashCode();
 
 		// 几种map
 		Hashtable<String, Integer> hashtable = new Hashtable<String, Integer>();
@@ -111,6 +113,14 @@ public class JDKSourceLearninng {
 
 		// 原子类型
 		AtomicInteger ai = new AtomicInteger();
+		
+		double d = 1.0;
+		long l = 1L;
+		
+		d = l;
+		
+		// wrong
+		// l = d;
 
 
 	}
