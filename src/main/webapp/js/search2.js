@@ -6,7 +6,7 @@
 function agentModeSwitch() {
     if($("#agent-cb")[0].checked) {
         // 使用代理
-        $("a", [id=search]).each(function(){
+        $("a", "[id=search]").each(function(){
             //FIXME
             var url = encodeURI($(this).attr("href"));
             if(url.indexOf("/search?q=") == -1) {
@@ -16,7 +16,9 @@ function agentModeSwitch() {
         })
     } else {
         // 不使用代理
-        $("a", [id=search]).each(function(){
+    	// 属性选择器不使用引号就报错; 2017-05-25 之前运行正常, jQuery 更新导致?
+//        $("a", [id=search]).each(function(){
+        $("a", "[id=search]").each(function(){
             var url = $(this).attr("href");
             if(url.indexOf("/url?q=") > -1) {
                 var pIndex = url.indexOf("&sa=")
