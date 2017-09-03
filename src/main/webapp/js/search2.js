@@ -17,6 +17,7 @@ function agentModeSwitch() {
     } else {
         // 不使用代理
     	// 属性选择器不使用引号就报错; 2017-05-25 之前运行正常, jQuery 更新导致?
+    	// 又不报错了,奇怪
 //        $("a", [id=search]).each(function(){
         $("a", "[id=search]").each(function(){
             var url = $(this).attr("href");
