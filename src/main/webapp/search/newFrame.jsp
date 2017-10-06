@@ -10,7 +10,7 @@
     <link href="/css/base2.css" rel="stylesheet" type="text/css"/>
     <link href="/css/newFrame.css" rel="stylesheet" type="text/css"/>
     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="/js/search2.js"></script>
+    <script src="/js/search_3v.js"></script>
 </head>
 <body class="hsrp" bgcolor="#ffffff" marginheight="0" marginwidth="0" topmargin="0">
 <div class=gbh style=left:0></div>
@@ -50,6 +50,16 @@
                                 </table>
                             </div>
                         </td>
+                        
+                         <td style="vertical-align: bottom;">
+                           <select style="height: 31px; width: 108px; margin-left: 10px;" name="lr">
+                            	<option value="lang_zh-CN|lang_zh-TW">所有中文网页</option>
+                            	<option value="lang_zh-CN">简体网页</option>
+                            	<option value="lang_zh-TW">繁体网页 </option>
+                            	<option value="lang_en">英文网页</option>
+                            </select>
+                        </td>
+                        
                         <td>
                             <div class="ds">
                                 <div class="lsbb">
@@ -62,7 +72,6 @@
                     </tr>
                 </table>
                 <input name="newwindow" value="1" type="hidden">
-                <input type="hidden" name="lr" value="lang_zh-CN">
             </form>
         </td>
         <td class="sfbgg">&nbsp;</td>
@@ -84,7 +93,7 @@
                 <div class="_cD" id="fll" style="margin:19px auto 19px auto;text-align:center">
                     <p align="center" style="color:#1a0dab !important;">
                         免责声明：本站只提供信息检索服务, 不存储任何内容。<br />
-                        如果有侵犯之处，及时联系我们整改。联系:qings2329@sina.com<br />
+                        如有侵犯之处，及时联系我们整改。联系:qings2329@sina.com<br />
                         Copyright&copy;2016-2018  墙洞搜索引擎<br />
                     </p>
                 </div>

@@ -155,7 +155,7 @@
 		<td colspan="2">
 			<p align="center" style="padding-top: 10px;">
 				免责声明：本站只提供信息检索服务, 不存储任何内容。<br />
-				如果有侵犯之处，及时联系我们整改。联系:qings2329@sina.com<br />
+				如有侵犯之处，及时联系我们整改。联系:qings2329@sina.com<br />
 				Copyright&copy;2016-2017  水榴搜索引擎<br />
 			</p>
 			

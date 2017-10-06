@@ -30,11 +30,12 @@
 <div class="nav center">
     <div class="box_outer">
         <div class="box_body">
-            <div align="center" style="padding-top: 20px;">
+            <div align="center" style="padding-top: 5px;">
                 <img src="/images/Globe_earth_search.png" alt="vpn代理"/>
-                <h1 style="color:blue">墙洞搜索 V1.4 Release</h1>
+                <h1 style="color:blue">墙洞搜索 V1.5 Release</h1>
 
                 <span>穿透高墙, 洞察世界</span>
+
 
             </div>
 
@@ -42,7 +43,7 @@
                 <tbody>
                 <tr id='test'>
                     <td class="first_td"></td>
-                    <td width="460px"></td>
+                    <td width="320px"></td>
                     <form id="cse-search-box" name="f" action="/search" method="get" target="_blank"
                           onsubmit="return checkForm()">
 
@@ -54,23 +55,41 @@
                                 <div id="sug"></div>
                             </div>
                         </td>
+                        
+                        <td style="vertical-align: bottom;">
+                           <select style="height: 31px; width: 108px; margin-right: 5px;" name="lr">
+                            	<option value="lang_zh-CN|lang_zh-TW">所有中文网页</option>
+                            	<option value="lang_zh-CN">简体网页</option>
+                            	<option value="lang_zh-TW">繁体网页 </option>
+                            	<option value="lang_en">英文网页</option>
+                            </select>
+                        </td>
+                        
                         <td>
                             <br/>
-                            <button type="submit">墙洞一下</button>
+                            <button style="height: 31px; width: 78px;" type="submit">搜索</button>
                             <input name="newwindow" value="1" type="hidden">
-                            <input type="hidden" name="lr" value="lang_zh-CN">
                         </td>
                     </form>
-                    <td align=right id="hao_search_content" width="360px"
-                        style="vertical-align: bottom; padding-left: 10px;">
+                    <td align=right id="hao_search_content" width="260px"
+                        style="vertical-align: bottom;">
+                        
 <!--                         <a style="float:left" href="http://link-x.ml/" target="_blank"> -->
 <!--                         	<font color="red" style="font-size: 18px"><strong>搜网盘</strong></font> -->
 <!--                         </a> -->
+                        
                     </td>
                     <td class="last_td"></td>
                 </tr>
                 </tbody>
             </table>
+        
+            <div align="center" style="padding-top: 25px;">
+             <a style="" href="/online-agent" target="_blank">
+             	<font color="red" style="font-size: 18px"><strong>试一下在线代理</strong></font>
+             </a>
+            </div>
+        
         </div>
 
         <div class="box_b"><span class="box_p"></span></div>
@@ -82,7 +101,7 @@
 <div>
     <p align="center" style="padding-top: 200px;">
         免责声明：本站只提供信息检索服务, 不存储任何内容。<br/>
-        如果有侵犯之处，及时联系我们整改。联系:qings2329@sina.com<br/>
+        如有侵犯之处，及时联系我们整改。联系:qings2329@sina.com<br/>
         Copyright&copy;2017-2018 墙洞搜索引擎<br/>
     </p>
 </div>

@@ -21,9 +21,10 @@ import java.io.IOException;
  * Servlet implementation class GoServlet
  */
 public class GoServletV1 extends HttpServlet {
-    private static final long serialVersionUID = 1L;
 
-    private static final String googleSearch = "https://www.google.com";
+	private static final long serialVersionUID = 4966593857229253616L;
+
+	private static final String googleSearch = "https://www.google.com";
 
 
     /**

@@ -27,6 +27,7 @@ public class HttpUtils {
 			
 			if("GET".equalsIgnoreCase(method)){
 				if(params != null){
+					// 把参数拼在url后面
 					// ....
 				}
 				HttpGet httpGet = new HttpGet(url);
@@ -40,7 +41,7 @@ public class HttpUtils {
 				}
 				response = httpClient.execute(httpPost);
 			} else {
-				throw new Exception("invalid method");
+				throw new Exception("unsupported method:" + method);
 			}
 			HttpEntity entity = response.getEntity();
 			ret = EntityUtils.toString(entity, "UTF-8");

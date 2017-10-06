@@ -1,6 +1,9 @@
 package com.linkx.servlet;
 
 import com.linkx.util.HttpUtils;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 import org.htmlparser.Node;
 import org.htmlparser.NodeFilter;
 import org.htmlparser.Parser;
@@ -17,15 +20,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 
-/**
- * Servlet implementation class GoServlet
- */
 public class GoServlet extends HttpServlet {
-  private static final long serialVersionUID = 1L;
 
-  private static final String googleSearch = "https://www.google.com";
+	private static final long serialVersionUID = -9181656224045810264L;
+	
+	private static final String SEARCH_HOST = "https://www.google.com";
+	
+	private static final boolean IS_DEBUGING = false;
+	//FIXME: 上线前记得该状态
+//	private static final boolean IS_DEBUGING = true;
+	
+	private static final String AGENT_URL = "http://www.bitcore.top/agent";
 
 
   /**
@@ -60,9 +69,18 @@ public class GoServlet extends HttpServlet {
         params = "?gws_rd=cr&newwindow=1&" + params;
       }
 
-      ret = HttpUtils.request(googleSearch + uri + params, "GET", null);
-
-      //            ret = TEST_HTML;
+      String url = SEARCH_HOST + uri + params;;
+      if(IS_DEBUGING) {
+    	  // 使用代理
+    	  List<NameValuePair> paramPair = new ArrayList<NameValuePair>();
+    	  BasicNameValuePair p = new BasicNameValuePair("targetUrl", url); 
+    	  paramPair.add(p);
+    	  
+    	  ret = HttpUtils.request(AGENT_URL, "POST", paramPair);
+      } else {
+    	  ret = HttpUtils.request(url, "GET", null);
+      }
+    
 
       if (ret == null) {
         response.sendRedirect("/search/");

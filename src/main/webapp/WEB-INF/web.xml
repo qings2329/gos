@@ -9,6 +9,7 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
   <servlet>
     <servlet-name>SearcherServlet</servlet-name>
     <servlet-class>com.linkx.servlet.SearcherServlet</servlet-class>
@@ -17,6 +18,7 @@
     <servlet-name>SearcherServlet</servlet-name>
     <url-pattern>/doSearch</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>WeixinSignServlet</servlet-name>
     <servlet-class>com.linkx.servlet.WeixinSignServlet</servlet-class>
@@ -25,6 +27,7 @@
     <servlet-name>WeixinSignServlet</servlet-name>
     <url-pattern>/wxSign</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <description></description>
     <display-name>GoServlet</display-name>
@@ -34,6 +37,17 @@
   <servlet-mapping>
     <servlet-name>GoServlet</servlet-name>
     <url-pattern>/search</url-pattern>
-      <url-pattern>/url</url-pattern>
+    <url-pattern>/url</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <description></description>
+    <display-name>AgentServlet</display-name>
+    <servlet-name>AgentServlet</servlet-name>
+    <servlet-class>com.linkx.servlet.AgentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AgentServlet</servlet-name>
+    <url-pattern>/agent</url-pattern>
   </servlet-mapping>
 </web-app>

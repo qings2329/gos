@@ -32,8 +32,8 @@ function agentModeSwitch() {
 
 
 $(function () {
-
-    $("a", [id=search]).each(function(){
+//  $("a", [id=search]).each(function(){
+    $("a", "[id=search]").each(function(){
         var url = $(this).attr("href");
         if(url.indexOf("/url?q=") > -1) {
             var pIndex = url.indexOf("&sa=")
