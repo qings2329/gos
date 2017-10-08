@@ -2,34 +2,104 @@
 <html>
 <head>
     <link href="/images/Globe_earth_search.ico" rel="shortcut icon">
-    <title>在线代理</title>
+    <title>简单代理</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="keywords" content="墙洞搜索,在线代理,google,翻墙"/>
     <meta name="description" content="墙洞搜索, 欣赏邻家好风景"/>
     <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
     <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
     <META HTTP-EQUIV="Expires" CONTENT="0">
+    <link href="/css/base2.css" rel="stylesheet" type="text/css"/>
+    <script>
+        function checkForm() {
+            var q = document.getElementById("q");
+            if (q.value == null || q.value == "") {
+                alert("请输入需要搜索的信息！");
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+
 </head>
 <body>
 
 
-<div align="center" width="100%" height="100%">
+<div style="display: none;" class="tip" id="topTipText"></div>
+<div class="nav center">
+    <div class="box_outer">
+        <div class="box_body">
+            <div align="center" style="">
+<!--                 <img src="/images/Globe_earth_search.png" alt="vpn代理"/> -->
+                <h2 style="color:blue">简单在线代理</h2>
 
-	<iframe name="agentPage" width="100%" height="570px" id="iFrame1"  onload="this.height=iFrame1.document.body.scrollHeight" frameborder="0" src="http://ag-ent.193b.starter-ca-central-1.openshiftapps.com/">
-	
-	</iframe>
+                <span>在输入框输入需要以科学方式访问的网址</span>
 
+            </div>
+
+            <table class="sch">
+                <tbody>
+                <tr id='test'>
+                    <td class="first_td"></td>
+                    <td width="460px"></td>
+                    <form id="cse-search-box" name="f" action="http://www.bitcore.top/agent" method="post" target="_blank"
+                          onsubmit="return checkForm()">
+
+                        <td width="373px">
+                            <br/>
+                            <div id="sugOut"><input name="targetUrl" value="" maxlength=100
+                                                    id="q" autocomplete="off">
+                                <br>
+                                <div id="sug"></div>
+                            </div>
+                        </td>
+                        <td>
+                            <br/>
+                            <button type="submit">科学访问</button>
+                        </td>
+                    </form>
+                    <td align=right id="hao_search_content" width="360px"
+                        style="vertical-align: bottom; padding-left: 10px;">
+<!--                         <a style="float:left" href="http://link-x.ml/" target="_blank"> -->
+<!--                         	<font color="red" style="font-size: 18px"><strong>搜网盘</strong></font> -->
+<!--                         </a> -->
+                    </td>
+                    <td class="last_td"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="box_b"><span class="box_p"></span></div>
+
+
+
+    </div>
 </div>
 
-<!-- <div>
-    <p align="center" style="padding-top: 200px;">
+
+
+<!-- <div align="center" width="100%" height="100%"> -->
+
+<!-- 	<iframe name="agentPage" width="100%"  frameborder="0" src=""> -->
+	
+<!-- 	</iframe> -->
+
+<!-- </div> -->
+
+<div>
+    <p align="center" style="padding-top: 200px; color: #939393;">
         免责声明：本站只提供信息检索服务, 不存储任何内容。<br/>
-        如有侵犯之处，及时联系我们整改。联系:qings2329@sina.com<br/>
+        如果有侵犯之处，及时联系我们整改。联系:qings2329@sina.com<br/>
         Copyright&copy;2017-2018 墙洞搜索引擎<br/>
     </p>
-</div> -->
+</div>
 
 
+
+<script type="text/javascript" src="/js/base.js"></script>
+<script type="text/javascript" src="/js/bcommon.js"></script>
 
 </body>
 </html>
