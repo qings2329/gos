@@ -61,6 +61,7 @@ public class GoServlet extends HttpServlet {
       //            }
 
       String params = request.getQueryString();
+      String originalQueryWord = request.getParameter("q");
 
       if (params == null) {
         response.sendRedirect("/search/");
@@ -126,10 +127,15 @@ public class GoServlet extends HttpServlet {
         parser.reset();
         NodeList inputNodeList = parser.extractAllNodesThatMatch(filter3);
         String qWord = "";
+        String gInputHtml = "";
         if (inputNodeList != null && inputNodeList.size() > 0) {
-          qWord = ((InputTag) inputNodeList.elementAt(0)).getAttribute("value");
+          InputTag gInput =  (InputTag) inputNodeList.elementAt(0);
+          gInputHtml = gInput.toHtml();
+          qWord = gInput.getAttribute("value");
         }
-        request.setAttribute("qWord", qWord);
+//        request.setAttribute("qWord", qWord);
+        request.setAttribute("qWord", originalQueryWord);
+        request.setAttribute("gInputHtml", gInputHtml);
 
       }
 

@@ -1,12 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="org.apache.commons.lang3.StringEscapeUtils" %>
+
+<%
+	Object obj = request.getAttribute("qWord");
+	String qWord = obj == null ? "" : obj.toString() ;
+%>         
 <!doctype html>
 <html itemscope="" itemtype="http://schema.org/SearchResultsPage" lang="en">
 <head>
     <link href="/images/Globe_earth_search.ico" rel="shortcut icon">
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
-    <title><%=request.getAttribute("qWord")%> - 墙洞搜索</title>
+    <title><%=qWord%> - 墙洞搜索</title>
     <link href="/css/base2.css" rel="stylesheet" type="text/css"/>
     <link href="/css/newFrame.css" rel="stylesheet" type="text/css"/>
     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -18,7 +25,7 @@
 <table id="mn" border="0" cellpadding="0" cellspacing="0" style="position:relative">
     <tr>
         <th width="132"></th>
-        <th width="573"></th>
+        <th width="530"></th>
         <th width="278"></th>
         <th></th>
     </tr>
@@ -36,14 +43,9 @@
                                 <table cellpadding="0" cellspacing="0">
                                     <tr>
                                         <td class="lst-td" width="555" valign="bottom">
-                                            <div id="sugOut" style="position:relative;zoom:1"><input class="lst"
-                                                                                                     autocomplete="off"
-                                                                                                     id="q"
-                                                                                                     maxlength="2048"
-                                                                                                     name="q"
-                                                                                                     type="text"
-                                                                                                     value="<%=request.getAttribute("qWord")%>">
-                                                <div id="sug"></div>
+                                            <div id="sugOut" style="position:relative;zoom:1">
+	                                             <%=request.getAttribute("gInputHtml") %>
+	                                             <div id="sug"></div>
                                             </div>
                                         </td>
                                     </tr>
@@ -51,7 +53,7 @@
                             </div>
                         </td>
                         
-                         <td style="vertical-align: bottom;">
+                         <td style="">
                            <select style="height: 31px; width: 108px; margin-left: 10px;" name="lr">
                             	<option value="lang_zh-CN|lang_zh-TW">所有中文网页</option>
                             	<option value="lang_zh-CN">简体网页</option>
@@ -67,14 +69,20 @@
                                 </div>
                             </div>
                         </td>
-                        <td><input type="checkbox" style="margin-left:15px; display:none;" id="agent-cb"
-                                   name="agent-cb"></td>
+                        <td>
+	                        <input type="checkbox" style="margin-left:15px; display:none;" id="agent-cb"
+	                                   name="agent-cb">
+                        </td>
                     </tr>
                 </table>
                 <input name="newwindow" value="1" type="hidden">
             </form>
         </td>
-        <td class="sfbgg">&nbsp;</td>
+        <td class="sfbgg">
+         <a style="" href="http://ag-ent.193b.starter-ca-central-1.openshiftapps.com/" target="_blank">
+				            	<font color="red" style="font-size: 18px"><strong>试一下在线代理</strong></font>
+				            </a>
+        </td>
     </tr>
     <tbody data-jibp="h" data-jiis="uc" id="desktop-search">
     <tr>

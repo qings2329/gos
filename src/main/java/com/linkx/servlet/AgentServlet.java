@@ -3,11 +3,14 @@ package com.linkx.servlet;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.net.URLDecoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import com.linkx.util.HttpUtils;
 
@@ -68,6 +71,22 @@ public class AgentServlet extends HttpServlet {
 //			outputStream.flush();
 //			outputStream.close();
 		}
+  }
+  
+  
+  /**
+   * 测试
+   * @param args
+   */
+  public static void main(String args[]) {
+//	  String url = "https://forums.godfootsteps.org/topic/10616-%E6%9B%B4%E5%8A%A0%E5%AE%89%E5%85%A8%E7%9A%84%E7%BF%BB%E";
+//	  System.out.println(URLDecoder.decode(url));
+	  
+	  String test = null;
+	  String testString1 = "java html 转义";
+	  String testString2 = "HTTP-EQUIV=\"Pragma\"";
+	  test = StringEscapeUtils.escapeHtml4(testString1);
+	  System.out.println(test);
   }
 
 
