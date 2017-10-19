@@ -30,9 +30,9 @@ public class GoServlet extends HttpServlet {
 	
 	private static final String SEARCH_HOST = "https://www.google.com";
 	
-//	private static final boolean IS_DEBUGING = false;
+	private static final boolean IS_DEBUGING = false;
 	//FIXME: 上线前记得该状态
-	private static final boolean IS_DEBUGING = true;
+//	private static final boolean IS_DEBUGING = true;
 	
 	private static final String AGENT_URL = "http://www.bitcore.top/agent";
 
