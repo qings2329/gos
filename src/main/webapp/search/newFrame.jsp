@@ -6,7 +6,7 @@
 <%
 	Object obj = request.getAttribute("qWord");
 	String qWord = obj == null ? "" : obj.toString() ;
-%>         
+%>
 <!doctype html>
 <html itemscope="" itemtype="http://schema.org/SearchResultsPage" lang="en">
 <head>
@@ -55,10 +55,10 @@
                         
                          <td style="">
                            <select style="height: 31px; width: 108px; margin-left: 10px;" name="lr">
-                            	<option value="lang_zh-CN|lang_zh-TW">所有中文网页</option>
-                            	<option value="lang_zh-CN">简体网页</option>
-                            	<option value="lang_zh-TW">繁体网页 </option>
-                            	<option value="lang_en">英文网页</option>
+                               <option value="lang_zh-CN|lang_zh-TW" <c:if test="${lr == 'lang_zh-CN|lang_zh-TW'}">selected</c:if> >所有中文网页</option>
+                            	<option value="lang_zh-CN" <c:if test="${lr == 'lang_zh-CN'}">selected</c:if> >简体网页</option>
+                            	<option value="lang_zh-TW" <c:if test="${lr == 'lang_zh-TW'}">selected</c:if> >繁体网页 </option>
+                            	<option value="lang_en" <c:if test="${lr == 'lang_en'}">selected</c:if> >英文网页</option>
                             </select>
                         </td>
                         
@@ -79,9 +79,9 @@
             </form>
         </td>
         <td class="sfbgg">
-         <a style="" href="http://ag-ent.193b.starter-ca-central-1.openshiftapps.com/" target="_blank">
-				            	<font color="red" style="font-size: 18px"><strong>试一下在线代理</strong></font>
-				            </a>
+         <%--<a style="" href="http://www.bitcore.top/online-agent/index.html" target="_blank">--%>
+				            	<%--<font color="red" style="font-size: 18px"><strong>试一下在线代理</strong></font>--%>
+				            <%--</a>--%>
         </td>
     </tr>
     <tbody data-jibp="h" data-jiis="uc" id="desktop-search">

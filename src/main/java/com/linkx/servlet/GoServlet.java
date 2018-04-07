@@ -136,10 +136,12 @@ public class GoServlet extends HttpServlet {
 //        request.setAttribute("qWord", qWord);
         request.setAttribute("qWord", originalQueryWord);
         request.setAttribute("gInputHtml", gInputHtml);
-
+        String lr = request.getParameter("lr");
+        request.setAttribute("lr", lr);
         // google 限制
         if("".equals(gInputHtml)) {
-          response.sendRedirect("http://ag-ent.193b.starter-ca-central-1.openshiftapps.com/");
+          // 试试必应
+          response.sendRedirect("http://www.bitcore.top/online-agent/index.html");
           return;
         }
 
