@@ -1,5 +1,8 @@
 package org.qings2329.learn;
 
+import org.junit.Test;
+
+import java.math.BigDecimal;
 import java.time.*;
 
 /**
@@ -43,6 +46,20 @@ public class Java8LocalDateTime {
 
 //        localDateTime.
 
+    }
+
+    @Test
+    public void calculateSubsidy() {
+        Long YI = 100000000L;
+        BigDecimal q = new BigDecimal(0.5);
+        BigDecimal totalCoin = new BigDecimal(500L * YI);
+        BigDecimal preminePercent = new BigDecimal(0.95);
+        BigDecimal qN = new BigDecimal(Math.pow(0.5, 64));
+        BigDecimal divisor = BigDecimal.ONE.subtract(qN);
+
+        BigDecimal subsidy = totalCoin.multiply(BigDecimal.ONE.subtract(preminePercent)).multiply(q).divide(divisor, 10, BigDecimal.ROUND_HALF_UP);
+        BigDecimal nSubsidyHalvingInterval = new BigDecimal(4200000);
+        System.out.println(subsidy.divide(nSubsidyHalvingInterval, 2, BigDecimal.ROUND_HALF_UP));
     }
 
 }
