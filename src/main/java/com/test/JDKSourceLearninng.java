@@ -1,13 +1,6 @@
 package com.test;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Hashtable;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -84,6 +77,10 @@ public class JDKSourceLearninng {
 		hashMap.put("", null);
 		hashMap.get("");
 		hashMap.remove("");
+
+		//
+		Map synnchronizeMap = Collections.synchronizedMap(hashMap);
+
 
 		ConcurrentHashMap<String, Integer> concurretHashMap = new ConcurrentHashMap<String, Integer>();
 		concurretHashMap.put("", 1);
