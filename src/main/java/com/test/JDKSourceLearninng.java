@@ -5,6 +5,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author qings2329
@@ -41,6 +43,36 @@ public class JDKSourceLearninng {
 
 	public static void main(String[] args) {
 
+		boolean stop = true;
+
+		Queue<Object> queue = new PriorityQueue<>();
+		queue.add(null);
+		// 移除并返问队列头部的元素
+		queue.poll();
+		// 返回队列头部的元素
+		queue.peek();
+
+
+		Object[] objects = new Object[10];
+		// 数组用length，不是size()
+		System.out.println(objects.length);
+
+
+
+		ReentrantLock lock = new ReentrantLock();
+
+
+		// Long 对象的比较
+		Long l1 = new Long(1);
+		Long l2 = new Long(1);
+		System.out.println(l1 == l2);
+		System.out.println(l1.equals(l2));
+
+		if(stop) {
+			return;
+		}
+
+
 		System.out.println("start main !");
 
 		System.out.println("************* new JDKSourceLearninng() *************");
@@ -62,10 +94,10 @@ public class JDKSourceLearninng {
 		Long.valueOf("1");
 		Long.parseLong("2");
 
-
 		Object obj = new Object();
 		obj.equals(null);
 		obj.hashCode();
+
 
 		// 几种map
 		Hashtable<String, Integer> hashtable = new Hashtable<String, Integer>();
@@ -119,6 +151,10 @@ public class JDKSourceLearninng {
 		
 		// wrong
 		// l = d;
+
+
+		Exception ex = new Exception();
+		Error error = new Error();
 
 
 	}
