@@ -1,6 +1,7 @@
 package com.test;
 
 import java.util.*;
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -51,6 +52,11 @@ public class JDKSourceLearninng {
 		queue.poll();
 		// 返回队列头部的元素
 		queue.peek();
+
+		Queue<Object> bqueue = new ArrayBlockingQueue<Object>(20);
+		bqueue.add(new Object());
+		bqueue.poll();
+		bqueue.remove();
 
 
 		Object[] objects = new Object[10];
