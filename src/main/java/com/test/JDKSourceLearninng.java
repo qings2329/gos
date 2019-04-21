@@ -1,10 +1,7 @@
 package com.test;
 
 import java.util.*;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -46,6 +43,10 @@ public class JDKSourceLearninng {
 
 		boolean stop = true;
 
+		// 若该字符串不存在常量池，则添加到常量池
+		String intern = new String("intern").intern();
+
+
 		Queue<Object> queue = new PriorityQueue<>();
 		queue.add(null);
 		// 移除并返问队列头部的元素
@@ -53,9 +54,15 @@ public class JDKSourceLearninng {
 		// 返回队列头部的元素
 		queue.peek();
 
-		Queue<Object> bqueue = new ArrayBlockingQueue<Object>(20);
+		BlockingQueue<Object> bqueue = new ArrayBlockingQueue<Object>(20);
 		bqueue.add(new Object());
 		bqueue.poll();
+		try{
+			bqueue.take();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+
 		bqueue.remove();
 
 
@@ -144,7 +151,9 @@ public class JDKSourceLearninng {
 
 
 		// 线程池
+		// 线程数量固定
 		ExecutorService fixedThreadPool = Executors.newFixedThreadPool(3);
+
 
 
 		// 原子类型
