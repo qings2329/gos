@@ -33,6 +33,10 @@ public class JDKSourceLearninng {
 
 	}
 
+	public JDKSourceLearninng(String str) {
+	    System.out.println("this is JDKSourceLearninng class");
+    }
+
 	private static JDKSourceLearninng ins = new JDKSourceLearninng();
 
 	public static JDKSourceLearninng getInstance () {
@@ -42,13 +46,24 @@ public class JDKSourceLearninng {
 	public static void main(String[] args) {
 
 		boolean stop = true;
+        new JDKSourceLearninng("");
+
+        if(stop) {
+            return;
+        }
+
+		// LRU
+		Map linkMap = new LinkedHashMap(10);
+		linkMap.put(null, null);
+		linkMap.get(null);
+
 
 		// 若该字符串不存在常量池，则添加到常量池
 		String intern = new String("intern").intern();
 
 
 		Queue<Object> queue = new PriorityQueue<>();
-		queue.add(null);
+		queue.add(new Object());
 		// 移除并返问队列头部的元素
 		queue.poll();
 		// 返回队列头部的元素
@@ -81,9 +96,7 @@ public class JDKSourceLearninng {
 		System.out.println(l1 == l2);
 		System.out.println(l1.equals(l2));
 
-		if(stop) {
-			return;
-		}
+
 
 
 		System.out.println("start main !");
@@ -153,6 +166,18 @@ public class JDKSourceLearninng {
 		// 线程池
 		// 线程数量固定
 		ExecutorService fixedThreadPool = Executors.newFixedThreadPool(3);
+		Runnable runnable = new Runnable() {
+			@Override
+			public void run() {
+
+			}
+		};
+		fixedThreadPool.submit(runnable);
+		FutureTask<Object> futureTask = new FutureTask(null);
+		fixedThreadPool.execute(runnable);
+
+		// 核心线程数 0, 最大线程数 正数最大值
+        ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
 
 
 
