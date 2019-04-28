@@ -2,6 +2,13 @@ package com.test;
 
 public class Children extends Parent  {
 
+    public static int STATIC_FIELD = static_method();
+
+    private static int static_method(){
+        System.out.println("Children init static field");
+        return 5;
+    }
+
     static {
         System.out.println("Children static block 1");
     }
@@ -16,7 +23,7 @@ public class Children extends Parent  {
     }
 
     public Children() {
-        System.out.println("this is children class");
+        System.out.println("this is children construction method");
     }
 
     public static void main(String[] args) {
