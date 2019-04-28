@@ -3,7 +3,6 @@ package com.test;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -46,7 +45,20 @@ public class JDKSourceLearninng {
 	public static void main(String[] args) {
 
 		boolean stop = true;
-        new JDKSourceLearninng("");
+
+		ArrayList<Object> arrayList = new ArrayList<>();
+		arrayList.add(new Object());
+		arrayList.remove(0);
+
+
+		Collections.sort(arrayList, new Comparator<Object>(){
+
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        });
+
 
         if(stop) {
             return;
@@ -87,7 +99,8 @@ public class JDKSourceLearninng {
 
 
 
-		ReentrantLock lock = new ReentrantLock();
+		ReentrantLock reentrantLock = new ReentrantLock();
+		reentrantLock.tryLock();
 
 
 		// Long 对象的比较
@@ -175,6 +188,7 @@ public class JDKSourceLearninng {
 		fixedThreadPool.submit(runnable);
 		FutureTask<Object> futureTask = new FutureTask(null);
 		fixedThreadPool.execute(runnable);
+		Future result = fixedThreadPool.submit(runnable);
 
 		// 核心线程数 0, 最大线程数 正数最大值
         ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
@@ -182,7 +196,8 @@ public class JDKSourceLearninng {
 
 
 		// 原子类型
-		AtomicInteger ai = new AtomicInteger();
+		AtomicInteger ai = new AtomicInteger(0);
+		ai.incrementAndGet();
 		
 		double d = 1.0;
 		long l = 1L;
