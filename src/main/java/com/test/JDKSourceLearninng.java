@@ -42,7 +42,7 @@ public class JDKSourceLearninng {
 		return ins;
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 
 		boolean stop = true;
 
@@ -172,8 +172,19 @@ public class JDKSourceLearninng {
 		
 
 		// 线程局部变量
-		ThreadLocal tl = new ThreadLocal<>();
-		tl.set("");
+		ThreadLocal<Integer> tl = new ThreadLocal<>();
+		tl.set(1);
+		tl.get();
+
+
+		// 生产线程
+		Thread thread = new Thread("thread1") {
+			public void run() {
+				System.out.println(this.getName());
+			}
+		};
+		thread.start();
+		thread.join();
 
 
 		// 线程池
