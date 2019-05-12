@@ -10,20 +10,22 @@ import org.apache.log4j.PropertyConfigurator;
  */
 public class Test {
 	
-	private Logger log = Logger.getLogger(this.getClass());
+//	private Logger log = Logger.getLogger(this.getClass());
 	
-	public void testLog() {
-		log.info("test log!");
-	}
+//	public void testLog() {
+//		log.info("test log!");
+//	}
 	
 	public static void main(String[] args) {
 		
 		//PropertyConfigurator.configure(ClassLoader.getSystemResource("log4j.properties"));
 		
-		Test instance = new Test();
-		instance.testLog();
+//		Test instance = new Test();
+//		instance.testLog();
 		
-		System.out.println("output to console!");
+		System.out.println(String.format("%04d%02d%02d", 2019, 1, 1));
+
+
 		
 	}
 	

@@ -44,6 +44,9 @@ public class JDKSourceLearninng {
 
 	public static void main(String[] args) throws Exception {
 
+		// 类对象
+		Class classz = JDKSourceLearninng.class;
+
 		boolean stop = true;
 
 		ArrayList<Object> arrayList = new ArrayList<>();
@@ -158,6 +161,7 @@ public class JDKSourceLearninng {
 
 		// 红黑树
 		Map<String, Integer> treeMap = new TreeMap<String, Integer>();
+		treeMap.put("", 1);
 
 		Set treeSet = new TreeSet();
 		treeSet.add("");
