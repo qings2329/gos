@@ -25,6 +25,14 @@ public class Test {
 		
 		System.out.println(String.format("%04d%02d%02d", 2019, 1, 1));
 
+		String tesStr = "23456";
+
+		int x = Integer.parseInt(tesStr);
+
+		for(int i = 0; i < tesStr.length(); i++) {
+			System.out.println(tesStr.charAt(i) - '0');
+		}
+
 
 		
 	}
