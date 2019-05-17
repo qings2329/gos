@@ -11,7 +11,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @since Oct 20, 2016   1:10:39 AM
  * 
  */
-public class JDKSourceLearninng {
+public class JDKSourceLearning {
 
 	// 什么时候会执行 ?
 	String test = new String("test unstatic");
@@ -28,24 +28,24 @@ public class JDKSourceLearninng {
 		return "static string";
 	}
 
-	private JDKSourceLearninng(){
+	private JDKSourceLearning(){
 
 	}
 
-	public JDKSourceLearninng(String str) {
-	    System.out.println("this is JDKSourceLearninng class");
+	public JDKSourceLearning(String str) {
+	    System.out.println("this is JDKSourceLearning class");
     }
 
-	private static JDKSourceLearninng ins = new JDKSourceLearninng();
+	private static JDKSourceLearning ins = new JDKSourceLearning();
 
-	public static JDKSourceLearninng getInstance () {
+	public static JDKSourceLearning getInstance () {
 		return ins;
 	}
 
 	public static void main(String[] args) throws Exception {
 
 		// 类对象
-		Class classz = JDKSourceLearninng.class;
+		Class classz = JDKSourceLearning.class;
 
 		boolean stop = true;
 
@@ -68,7 +68,13 @@ public class JDKSourceLearninng {
         }
 
 		// LRU
-		Map linkMap = new LinkedHashMap(10);
+		LinkedHashMap<Integer, Object> linkMap = new LinkedHashMap(10){
+
+        	protected boolean removeEldestEntry() {
+				return false;
+			}
+
+		};
 		linkMap.put(null, null);
 		linkMap.get(null);
 
@@ -104,6 +110,8 @@ public class JDKSourceLearninng {
 
 		ReentrantLock reentrantLock = new ReentrantLock();
 		reentrantLock.tryLock();
+		reentrantLock.lock();
+		reentrantLock.unlock();
 
 
 		// Long 对象的比较
@@ -117,12 +125,12 @@ public class JDKSourceLearninng {
 
 		System.out.println("start main !");
 
-		System.out.println("************* new JDKSourceLearninng() *************");
-		JDKSourceLearninng instanceq1 = new JDKSourceLearninng();
+		System.out.println("************* new JDKSourceLearning() *************");
+		JDKSourceLearning instanceq1 = new JDKSourceLearning();
 
-		System.out.println("************* JDKSourceLearninng.getInstance() *************");
+		System.out.println("************* JDKSourceLearning.getInstance() *************");
 
-		JDKSourceLearninng instance = JDKSourceLearninng.getInstance();
+		JDKSourceLearning instance = JDKSourceLearning.getInstance();
 
 //		boolean flag = false;
 //		if(flag = true) {
