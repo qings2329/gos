@@ -3,6 +3,7 @@ package com.test;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -112,6 +113,11 @@ public class JDKSourceLearning {
 		reentrantLock.tryLock();
 		reentrantLock.lock();
 		reentrantLock.unlock();
+
+		Condition condition = reentrantLock.newCondition();
+
+		CountDownLatch countDownLatch = new CountDownLatch(10);
+		countDownLatch.await();
 
 
 		// Long 对象的比较
