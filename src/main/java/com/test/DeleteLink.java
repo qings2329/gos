@@ -32,7 +32,6 @@ public class DeleteLink {
         while (temp.next != null) {
             next = temp.next.next;
             temp.next.next = temp;
-
         }
         return null;
     }

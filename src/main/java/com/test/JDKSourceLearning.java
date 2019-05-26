@@ -84,6 +84,7 @@ public class JDKSourceLearning {
 		String intern = new String("intern").intern();
 
 
+		// 优先队列
 		Queue<Object> queue = new PriorityQueue<>();
 		queue.add(new Object());
 		// 移除并返问队列头部的元素
@@ -91,6 +92,10 @@ public class JDKSourceLearning {
 		// 返回队列头部的元素
 		queue.peek();
 
+		// 双向队列
+		Deque<Object> dqueue = new ConcurrentLinkedDeque<Object>();
+
+		// 阻塞队列
 		BlockingQueue<Object> bqueue = new ArrayBlockingQueue<Object>(20);
 		bqueue.add(new Object());
 		bqueue.poll();
@@ -221,7 +226,7 @@ public class JDKSourceLearning {
 
 		// 核心线程数 0, 最大线程数 正数最大值
         ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
-
+		cachedThreadPool.submit(runnable);
 
 
 		// 原子类型
