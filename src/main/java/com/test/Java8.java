@@ -10,6 +10,7 @@ public class Java8 {
 
     /**
      * 传方法的引用
+     *
      * @param supplier
      * @return
      */
@@ -19,7 +20,7 @@ public class Java8 {
 
     public static void main(String[] args) {
 
-        List<Integer> dataList = Arrays.asList(1,2,3,4,5);
+        List<Integer> dataList = Arrays.asList(1, 2, 3, 4, 5);
         dataList.stream().map(item -> item + 1).forEach(System.out::println);
 
         Java8 java8 = Java8.create(Java8::new);

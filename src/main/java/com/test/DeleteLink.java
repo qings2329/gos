@@ -28,20 +28,22 @@ public class DeleteLink {
 //        return pred;
 
         //做法二： 下一个节点指向当前节点 ?
-        Node temp = tail, next = null;
-        while (temp.next != null) {
-            next = temp.next.next;
-            temp.next.next = temp;
+        Node current = tail, prev = null, temp = null;
+        while (current != null) {
+            temp = current.next;
+            current.next = prev;
+            prev = current;
+            current = temp;
         }
-        return null;
+        return prev;
     }
 
     public static Node deleteNode(Node tail, int v) {
         Node pred = null;
         Node current = tail;
-        while(current != null) {
-            if(current.value == v) {
-                if(pred == null) {
+        while (current != null) {
+            if (current.value == v) {
+                if (pred == null) {
                     tail = current.next;
                 } else {
                     pred.next = current.next;
@@ -56,12 +58,12 @@ public class DeleteLink {
 
     public static Node buildLink(int[] values) {
         Node tail = null, current = null;
-        for(int x : values) {
+        for (int x : values) {
             Node node = new Node(x);
-            if(tail == null) {
+            if (tail == null) {
                 tail = node;
             }
-            if(current != null) {
+            if (current != null) {
                 current.next = node;
             }
             current = node;
