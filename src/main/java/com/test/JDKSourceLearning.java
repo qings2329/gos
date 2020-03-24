@@ -174,6 +174,7 @@ public class JDKSourceLearning {
 
         ConcurrentHashMap<String, Integer> concurretHashMap = new ConcurrentHashMap<String, Integer>();
         concurretHashMap.put("", 1);
+        concurretHashMap.size();
 
         // 红黑树
         Map<String, Integer> treeMap = new TreeMap<String, Integer>();

@@ -3,6 +3,7 @@ package org.qings2329.learn;
 public class SingletonDemo1 {
 
 
+    // 静态内部类实现单列
     private static class SingletonClassInstance {
         private static final SingletonDemo1 instance = new SingletonDemo1();
     }

@@ -8,8 +8,15 @@ public class ThreadPool {
 
     public static void main(String[] args) {
 
-        ExecutorService threadPool = Executors.newFixedThreadPool(10);
-//        threadPool.submit()
+        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(10);
+        fixedThreadPool.submit(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("task 1");
+            }
+        });
+
+        ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
 
     }
 
