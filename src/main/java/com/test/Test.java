@@ -3,6 +3,8 @@ package com.test;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
+import java.util.LinkedList;
+
 /**
  * @author qings2329
  *
@@ -22,6 +24,16 @@ public class Test {
 		
 //		Test instance = new Test();
 //		instance.testLog();
+
+
+		LinkedList<Integer> linkedList = new LinkedList<>();
+		linkedList.add(1);
+
+		long currentTimeMillis = System.currentTimeMillis();
+		long nano = System.nanoTime();
+
+		System.out.println(currentTimeMillis + " " + nano);
+
 		
 		System.out.println(String.format("%04d%02d%02d", 2019, 1, 1));
 
