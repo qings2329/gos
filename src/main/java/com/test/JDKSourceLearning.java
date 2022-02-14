@@ -12,6 +12,7 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class JDKSourceLearning {
 
+
     // 什么时候会执行 ?
     String test = new String("test unstatic");
 
@@ -43,12 +44,48 @@ public class JDKSourceLearning {
         return ins;
     }
 
+
+    public static String byteToBitStr(byte by) {
+        StringBuffer sb = new StringBuffer();
+        //每一位与 000000001按位与运算。保证每一位是 0或者1
+        sb.append((by>>7)&0x1);
+        sb.append((by>>6)&0x1);
+        sb.append((by>>5)&0x1);
+        sb.append((by>>4)&0x1);
+        sb.append((by>>3)&0x1);
+        sb.append((by>>2)&0x1);
+        sb.append((by>>1)&0x1);
+        sb.append((by>>0)&0x1);
+        return sb.toString();
+    }
+
+
+    // 运行函数
     public static void main(String[] args) throws Exception {
 
         // 类对象
         Class classz = JDKSourceLearning.class;
 
         boolean stop = true;
+
+
+        // byte
+        byte b1 = 1;
+        byte b2 = -1;
+//        Byte by = 1;
+//        by.byteValue();
+//        System.out.println(by.toString());
+
+        System.out.println(byteToBitStr(b1));
+        System.out.println(byteToBitStr(b2));
+
+
+
+
+        if (stop) {
+            return;
+        }
+
 
         ArrayList<Object> arrayList = new ArrayList<>();
         arrayList.add(new Object());
@@ -64,10 +101,6 @@ public class JDKSourceLearning {
         });
 
 
-        if (stop) {
-            return;
-        }
-
         // LRU
         LinkedHashMap<Integer, Object> linkMap = new LinkedHashMap(10) {
 
@@ -82,6 +115,10 @@ public class JDKSourceLearning {
 
         // 若该字符串不存在常量池，则添加到常量池
         String intern = new String("intern").intern();
+        // string hashCode 有缓存
+        intern.hashCode();
+        intern.equals("");
+        intern.charAt(0);
 
 
         // 优先队列
@@ -177,8 +214,10 @@ public class JDKSourceLearning {
         concurretHashMap.size();
 
         // 红黑树
-        Map<String, Integer> treeMap = new TreeMap<String, Integer>();
+        // 有序映射
+        TreeMap<String, Integer> treeMap = new TreeMap<String, Integer>();
         treeMap.put("", 1);
+
 
         Set treeSet = new TreeSet();
         treeSet.add("");
