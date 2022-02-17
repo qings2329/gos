@@ -69,7 +69,18 @@ public class JDKSourceLearning {
         boolean stop = true;
 
 
-        // byte
+        // 异常
+        Exception exc;
+        RuntimeException rex;
+
+
+
+        if (stop) {
+            return;
+        }
+
+
+        // 输出byte的比特位
         byte b1 = 1;
         byte b2 = -1;
 //        Byte by = 1;
@@ -80,11 +91,6 @@ public class JDKSourceLearning {
         System.out.println(byteToBitStr(b2));
 
 
-
-
-        if (stop) {
-            return;
-        }
 
 
         ArrayList<Object> arrayList = new ArrayList<>();
@@ -138,8 +144,8 @@ public class JDKSourceLearning {
         bqueue.poll();
         try {
             bqueue.take();
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (Exception ex1) {
+            ex1.printStackTrace();
         }
 
         bqueue.remove();
