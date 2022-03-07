@@ -75,6 +75,49 @@ public class JDKSourceLearning {
 
 
 
+        // 几种map
+        Hashtable<String, Integer> hashtable = new Hashtable<String, Integer>();
+        hashtable.get("");
+        // hashtable key value 不能为空
+//		hashtable.put(null, null);
+
+        HashMap<String, Integer> hashMap = new HashMap<String, Integer>();
+        hashMap.put("", null);
+        System.out.println(hashMap.get(""));
+        hashMap.remove("");
+
+
+        hashMap.put(null, 1);
+        System.out.println(hashMap.get(null));
+        hashMap.remove("");
+
+
+        //
+        Map synnchronizeMap = Collections.synchronizedMap(hashMap);
+
+
+        ConcurrentHashMap<String, Integer> concurretHashMap = new ConcurrentHashMap<String, Integer>();
+        concurretHashMap.put("", 1);
+        concurretHashMap.size();
+
+        // 红黑树
+        // 有序映射
+        TreeMap<String, Integer> treeMap = new TreeMap<String, Integer>();
+        treeMap.put("", 1);
+
+
+        Set treeSet = new TreeSet();
+        treeSet.add("");
+
+
+        Set hashSet = new HashSet();
+        hashSet.add("1");
+        hashSet.add(2);
+
+        System.out.println("hashset: " + Arrays.toString(hashSet.toArray()));
+
+
+
         if (stop) {
             return;
         }
@@ -200,40 +243,6 @@ public class JDKSourceLearning {
         obj.hashCode();
 
 
-        // 几种map
-        Hashtable<String, Integer> hashtable = new Hashtable<String, Integer>();
-        hashtable.get("");
-        // hashtable key value 不能为空
-//		hashtable.put(null, null);
-
-        Map<String, Integer> hashMap = new HashMap<String, Integer>();
-        hashMap.put("", null);
-        hashMap.get("");
-        hashMap.remove("");
-
-        //
-        Map synnchronizeMap = Collections.synchronizedMap(hashMap);
-
-
-        ConcurrentHashMap<String, Integer> concurretHashMap = new ConcurrentHashMap<String, Integer>();
-        concurretHashMap.put("", 1);
-        concurretHashMap.size();
-
-        // 红黑树
-        // 有序映射
-        TreeMap<String, Integer> treeMap = new TreeMap<String, Integer>();
-        treeMap.put("", 1);
-
-
-        Set treeSet = new TreeSet();
-        treeSet.add("");
-
-
-        Set hashSet = new HashSet();
-        hashSet.add("1");
-        hashSet.add(2);
-
-        System.out.println("hashset: " + Arrays.toString(hashSet.toArray()));
 
 
         // 线程局部变量
