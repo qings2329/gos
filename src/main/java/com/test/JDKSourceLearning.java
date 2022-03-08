@@ -78,14 +78,15 @@ public class JDKSourceLearning {
         // 几种map
         Hashtable<String, Integer> hashtable = new Hashtable<String, Integer>();
         hashtable.get("");
-        // hashtable key value 不能为空
-//		hashtable.put(null, null);
+        // hashtable key value 都不能为空
+//		hashtable.put(null, 1);
+//		hashtable.put("", null);
 
         HashMap<String, Integer> hashMap = new HashMap<String, Integer>();
+        // hashmap的 key value 都能为空
         hashMap.put("", null);
         System.out.println(hashMap.get(""));
         hashMap.remove("");
-
 
         hashMap.put(null, 1);
         System.out.println(hashMap.get(null));
