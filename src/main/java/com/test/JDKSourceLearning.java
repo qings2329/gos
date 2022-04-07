@@ -65,6 +65,15 @@ public class JDKSourceLearning {
 
         // 类对象
         Class classz = JDKSourceLearning.class;
+        System.out.println(classz.getName());
+        System.out.println(classz.getClass().getName());
+
+//      Number 是抽象类
+        Number number = 0.1;
+        number.getClass();
+
+        Object ob = new Object();
+        ob.getClass();
 
         boolean stop = true;
 
