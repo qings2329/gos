@@ -70,13 +70,27 @@ public class JDKSourceLearning {
 
 //      Number 是抽象类
         Number number = 0.1;
-        number.getClass();
+        System.out.println("number = 0.1 " + number.getClass().getName());
+        number = 1;
+        // 对象变了
+        System.out.println("number = 1 " + number.getClass().getName());
 
-        Object ob = new Object();
-        ob.getClass();
+//        Object ob = new Object();
+//        ob.getClass();
 
         boolean stop = true;
 
+        System.out.println(Integer.valueOf(1000) == Integer.valueOf(1000));
+        System.out.println(new Integer(1000) == new Integer(1000));
+        System.out.println(Integer.valueOf(10) == Integer.valueOf(10));
+        System.out.println(new Integer(10) == new Integer(10));
+        Integer a = 10;
+        Integer b = 10;
+        System.out.println(a == b);
+
+        if (stop) {
+            return;
+        }
 
         // 异常
         Exception exc;
@@ -128,9 +142,9 @@ public class JDKSourceLearning {
 
 
 
-        if (stop) {
-            return;
-        }
+//        if (stop) {
+//            return;
+//        }
 
 
         // 输出byte的比特位
