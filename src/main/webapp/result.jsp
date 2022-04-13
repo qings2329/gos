@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="com.linkx.util.ResponseUtil" %>	
+<%@ page import="com.linkx.util.ResponseUtil" %>
 <%
 	String query = request.getParameter("q") == null ? "" : request.getParameter("q").trim();
 	String method = request.getMethod();
