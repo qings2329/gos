@@ -11,6 +11,7 @@ public class JSPController {
 
     // http://localhost:8080/result.jsp/ in
     // but http://localhost:8080/result.jsp not in
+    // why?
     @RequestMapping("/{jspName}.jsp")
     public String visitJspx(@PathVariable("jspName") String jspName) {
 
