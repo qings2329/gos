@@ -9,8 +9,22 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class JSPController {
 
 
+    // http://localhost:8080/result.jsp/ in
+    // but http://localhost:8080/result.jsp not in
     @RequestMapping("/{jspName}.jsp")
     public String visitJspx(@PathVariable("jspName") String jspName) {
+
+        return jspName;
+    }
+
+    @RequestMapping("/{test}")
+    public String test(@PathVariable("test") String jspName) {
+
+        return jspName;
+    }
+
+    @RequestMapping("/test/{test}")
+    public String test2(@PathVariable("test") String jspName) {
 
         return jspName;
     }
