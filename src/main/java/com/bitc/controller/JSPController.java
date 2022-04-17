@@ -18,11 +18,11 @@ public class JSPController {
         return jspName;
     }
 
-    @RequestMapping("/{test}")
-    public String test(@PathVariable("test") String jspName) {
-
-        return jspName;
-    }
+//    @RequestMapping("/{test}")
+//    public String test(@PathVariable("test") String jspName) {
+//
+//        return jspName;
+//    }
 
     @RequestMapping("/test/{test}")
     public String test2(@PathVariable("test") String jspName) {
@@ -37,7 +37,28 @@ public class JSPController {
         return ret;
     }
 
-    static class Result {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public static class Result {
 
         public Result(int code, String msg) {
             this.code = code;
