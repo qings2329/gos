@@ -195,12 +195,16 @@ public class JDKSourceLearning {
 
 
         // 优先队列
-        Queue<Object> queue = new PriorityQueue<>();
-        queue.add(new Object());
+        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
+        priorityQueue.add(3);
+        priorityQueue.add(2);
+        priorityQueue.add(1);
         // 移除并返问队列头部的元素
-        queue.poll();
-        // 返回队列头部的元素
-        queue.peek();
+        // 最小的出列
+        priorityQueue.poll();
+        // 返回队列头部的元素，不出列
+        priorityQueue.peek();
+
 
         // 双向队列
         Deque<Object> dqueue = new ConcurrentLinkedDeque<Object>();
@@ -306,6 +310,7 @@ public class JDKSourceLearning {
 
         // 原子类型
         AtomicInteger ai = new AtomicInteger(0);
+        // cas
         ai.incrementAndGet();
 
         double d = 1.0;
