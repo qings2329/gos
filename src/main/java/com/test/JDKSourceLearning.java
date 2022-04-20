@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.LockSupport;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -233,6 +234,12 @@ public class JDKSourceLearning {
         reentrantLock.unlock();
 
         Condition condition = reentrantLock.newCondition();
+        condition.signal();
+        condition.await();
+
+        Object lockObj = new Object();
+        LockSupport.park(lockObj);
+
 
         CountDownLatch countDownLatch = new CountDownLatch(10);
         countDownLatch.await();
