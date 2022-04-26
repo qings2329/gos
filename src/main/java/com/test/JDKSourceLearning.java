@@ -64,6 +64,15 @@ public class JDKSourceLearning {
     // 运行函数
     public static void main(String[] args) throws Exception {
 
+        // 线程局部变量
+        ThreadLocal<Integer> testTl1 = new ThreadLocal<>();
+        testTl1.set(100);
+        testTl1.get();
+
+        ThreadLocal<Integer> testTl2 = new ThreadLocal<>();
+        testTl2.set(200);
+        testTl2.get();
+
         // 类对象
         Class classz = JDKSourceLearning.class;
         System.out.println(classz.getName());
@@ -277,13 +286,6 @@ public class JDKSourceLearning {
         obj.equals(null);
         obj.hashCode();
 
-
-
-
-        // 线程局部变量
-        ThreadLocal<Integer> tl = new ThreadLocal<>();
-        tl.set(1);
-        tl.get();
 
 
         // 生产线程
