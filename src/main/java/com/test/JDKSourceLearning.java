@@ -1,5 +1,10 @@
 package com.test;
 
+//import sun.misc.Unsafe;
+
+import sun.misc.Unsafe;
+
+import java.lang.reflect.Field;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -12,8 +17,6 @@ import java.util.concurrent.locks.ReentrantLock;
  * @since Oct 20, 2016   1:10:39 AM
  */
 public class JDKSourceLearning {
-
-
     // 什么时候会执行 ?
     String test = new String("test unstatic");
 
@@ -32,7 +35,6 @@ public class JDKSourceLearning {
     }
 
     private JDKSourceLearning() {
-
     }
 
     public JDKSourceLearning(String str) {
@@ -45,24 +47,55 @@ public class JDKSourceLearning {
         return ins;
     }
 
-
-    public static String byteToBitStr(byte by) {
-        StringBuffer sb = new StringBuffer();
-        //每一位与 000000001按位与运算。保证每一位是 0或者1
-        sb.append((by>>7)&0x1);
-        sb.append((by>>6)&0x1);
-        sb.append((by>>5)&0x1);
-        sb.append((by>>4)&0x1);
-        sb.append((by>>3)&0x1);
-        sb.append((by>>2)&0x1);
-        sb.append((by>>1)&0x1);
-        sb.append((by>>0)&0x1);
-        return sb.toString();
-    }
-
-
     // 运行函数
     public static void main(String[] args) throws Exception {
+        boolean stop = true;
+
+        System.out.println("java版本号：" + System.getProperty("java.version")); // java版本号
+
+        //在 jdk13中 Unsafe 有两个类 sun.misc.Unsafe  jdk.internal.misc.Unsafe
+//        Unsafe unsafe = Unsafe.getUnsafe();
+//        unsafe.compareAndSwapObject();
+
+        // 用户不能调用Unsafe.getUnsafe()
+//        Unsafe unsafe = Unsafe.getUnsafe();
+
+        //1.最简单的使用方式是基于反射获取Unsafe实例
+        Field f = Unsafe.class.getDeclaredField("theUnsafe");
+        f.setAccessible(true);
+        Unsafe unsafe = (Unsafe) f.get(null);
+
+        /**
+         * 操作数组:
+         * 可以获取数组的在内容中的基本偏移量（arrayBaseOffset），获取数组内元素的间隔（比例），
+         * 根据数组对象和偏移量获取元素值（getObject），设置数组元素值（putObject），示例如下。
+         */
+        String[] strings = new String[]{"1", "2", "3"};
+        long i = unsafe.arrayBaseOffset(String[].class);
+        System.out.println("string[] base offset is :" + i);
+
+        //every index scale
+        long scale = unsafe.arrayIndexScale(String[].class);
+        System.out.println("string[] index scale is " + scale);
+
+        //print first string in strings[]
+        System.out.println("first element is :" + unsafe.getObject(strings, i));
+
+        //set 100 to first string
+        unsafe.putObject(strings, i + scale * 0, "100");
+
+        //print first string in strings[] again
+        System.out.println("after set ,first element is :" + unsafe.getObject(strings, i + scale * 0));
+
+        if (stop) {
+            return;
+        }
+
+        // 原子类型
+        AtomicInteger ai = new AtomicInteger(0);
+        // cas
+        ai.incrementAndGet();
+
 
         // 线程局部变量
         ThreadLocal<Integer> testTl1 = new ThreadLocal<>();
@@ -88,7 +121,6 @@ public class JDKSourceLearning {
 //        Object ob = new Object();
 //        ob.getClass();
 
-        boolean stop = true;
 
         System.out.println(Integer.valueOf(1000) == Integer.valueOf(1000));
         System.out.println(new Integer(1000) == new Integer(1000));
@@ -98,14 +130,13 @@ public class JDKSourceLearning {
         Integer b = 10;
         System.out.println(a == b);
 
-        if (stop) {
-            return;
-        }
+//        if (stop) {
+//            return;
+//        }
 
         // 异常
         Exception exc;
         RuntimeException rex;
-
 
 
         // 几种map
@@ -151,7 +182,6 @@ public class JDKSourceLearning {
         System.out.println("hashset: " + Arrays.toString(hashSet.toArray()));
 
 
-
 //        if (stop) {
 //            return;
 //        }
@@ -166,8 +196,6 @@ public class JDKSourceLearning {
 
         System.out.println(byteToBitStr(b1));
         System.out.println(byteToBitStr(b2));
-
-
 
 
         ArrayList<Object> arrayList = new ArrayList<>();
@@ -287,7 +315,6 @@ public class JDKSourceLearning {
         obj.hashCode();
 
 
-
         // 生产线程
         Thread thread = new Thread("thread1") {
             public void run() {
@@ -316,12 +343,6 @@ public class JDKSourceLearning {
         ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
         cachedThreadPool.submit(runnable);
 
-
-        // 原子类型
-        AtomicInteger ai = new AtomicInteger(0);
-        // cas
-        ai.incrementAndGet();
-
         double d = 1.0;
         long l = 1L;
 
@@ -335,6 +356,21 @@ public class JDKSourceLearning {
         Error error = new Error();
 
 
+    }
+
+
+    public static String byteToBitStr(byte by) {
+        StringBuffer sb = new StringBuffer();
+        //每一位与 000000001按位与运算。保证每一位是 0或者1
+        sb.append((by >> 7) & 0x1);
+        sb.append((by >> 6) & 0x1);
+        sb.append((by >> 5) & 0x1);
+        sb.append((by >> 4) & 0x1);
+        sb.append((by >> 3) & 0x1);
+        sb.append((by >> 2) & 0x1);
+        sb.append((by >> 1) & 0x1);
+        sb.append((by >> 0) & 0x1);
+        return sb.toString();
     }
 
 
