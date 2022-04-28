@@ -8,6 +8,8 @@ import java.lang.reflect.Field;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.atomic.AtomicStampedReference;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.LockSupport;
 import java.util.concurrent.locks.ReentrantLock;
@@ -91,10 +93,23 @@ public class JDKSourceLearning {
             return;
         }
 
-        // 原子类型
+
+        // 原子操作
+        AtomicReference<Integer> atomicReference = new AtomicReference<Integer>(100);
+        atomicReference.compareAndSet(100, 200);
+        atomicReference.weakCompareAndSet(200, 300);
+        atomicReference.getAndSet(400);
+
+        // 原子整数
         AtomicInteger ai = new AtomicInteger(0);
         // cas
         ai.incrementAndGet();
+
+        // 解决ABA的问题, 记录版本号
+        AtomicStampedReference<Integer> atomicStampedReference = new AtomicStampedReference<>(100, 1);
+        int stamp = atomicStampedReference.getStamp();
+        boolean success = atomicStampedReference.compareAndSet(100, 200, stamp, stamp + 1);
+        // AtomicMarkableReference 记录是否修改
 
 
         // 线程局部变量
@@ -226,7 +241,7 @@ public class JDKSourceLearning {
 
         // 若该字符串不存在常量池，则添加到常量池
         String intern = new String("intern").intern();
-        // string hashCode 有缓存
+        // string 的 hashCode 有缓存
         intern.hashCode();
         intern.equals("");
         intern.charAt(0);
