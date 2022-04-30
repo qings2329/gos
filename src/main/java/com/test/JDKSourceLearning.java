@@ -4,6 +4,10 @@ package com.test;
 
 import sun.misc.Unsafe;
 
+import java.lang.ref.PhantomReference;
+import java.lang.ref.ReferenceQueue;
+import java.lang.ref.SoftReference;
+import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
 import java.util.*;
 import java.util.concurrent.*;
@@ -19,8 +23,13 @@ import java.util.concurrent.locks.ReentrantLock;
  * @since Oct 20, 2016   1:10:39 AM
  */
 public class JDKSourceLearning {
-    // 什么时候会执行 ?
+    // 什么时候会执行 ? 创建对象的时候
     String test = new String("test unstatic");
+
+    // 静态代码块
+    static {
+        System.out.println("static block run");
+    }
 
     private String initString = getStr();
 
@@ -52,8 +61,24 @@ public class JDKSourceLearning {
     // 运行函数
     public static void main(String[] args) throws Exception {
         boolean stop = true;
-
         System.out.println("java版本号：" + System.getProperty("java.version")); // java版本号
+
+        // 软引用 内存不足，gc才回收
+        Object obj1 = new Object();
+        SoftReference softReference = new SoftReference<>(obj1);
+        obj1 = null;
+        System.gc();
+        System.out.println("softReference: " + softReference.get());
+        //  弱引用 无论内存是否充足，gc都回收
+        Object obj2 = new Object();
+        WeakReference weakReference = new WeakReference(obj2);
+        obj2 = null;
+        System.gc();
+        System.out.println("weakReference: " + weakReference.get());
+        //
+        ReferenceQueue referenceQueue = new ReferenceQueue<>();
+        PhantomReference phantomReference = new PhantomReference(3, referenceQueue);
+
 
         //在 jdk13中 Unsafe 有两个类 sun.misc.Unsafe  jdk.internal.misc.Unsafe
 //        Unsafe unsafe = Unsafe.getUnsafe();
@@ -116,6 +141,9 @@ public class JDKSourceLearning {
         ThreadLocal<Integer> testTl1 = new ThreadLocal<>();
         testTl1.set(100);
         testTl1.get();
+
+        // 解决内存溢出的方法, 主动remove
+        testTl1.remove();
 
         ThreadLocal<Integer> testTl2 = new ThreadLocal<>();
         testTl2.set(200);
@@ -184,6 +212,9 @@ public class JDKSourceLearning {
         // 有序映射
         TreeMap<String, Integer> treeMap = new TreeMap<String, Integer>();
         treeMap.put("", 1);
+
+
+        // WeakHashMap 见 WeakReferenceDemo
 
 
         Set treeSet = new TreeSet();
@@ -388,7 +419,7 @@ public class JDKSourceLearning {
         return sb.toString();
     }
 
-
     // 利用递归 构造k重循环
+
 
 }
