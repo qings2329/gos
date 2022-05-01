@@ -210,8 +210,10 @@ public class JDKSourceLearning {
 
         // 红黑树
         // 有序映射
-        TreeMap<String, Integer> treeMap = new TreeMap<String, Integer>();
-        treeMap.put("", 1);
+        TreeMap<Integer, String> treeMap = new TreeMap<>();
+        treeMap.put(1, "test1");
+        treeMap.put(2, "test2");
+        treeMap.firstKey();
 
 
         // WeakHashMap 见 WeakReferenceDemo
