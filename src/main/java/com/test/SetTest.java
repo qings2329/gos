@@ -8,6 +8,7 @@ public class SetTest {
     public static void main(String[] args) {
 
         TreeMap<Integer, String> treeMap = new TreeMap<>();
+        treeMap.put(3, "test3");
         treeMap.put(1, "test1");
         treeMap.put(2, "test2");
         System.out.println(treeMap.firstKey());
@@ -19,7 +20,7 @@ public class SetTest {
         treeSet.add(14);
         treeSet.add(1);
         treeSet.add(2);
-        System.out.println(treeSet.first());
+        System.out.println(treeSet.last());
 
     }
 
