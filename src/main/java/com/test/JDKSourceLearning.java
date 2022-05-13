@@ -272,14 +272,6 @@ public class JDKSourceLearning {
         linkMap.get(null);
 
 
-        // 若该字符串不存在常量池，则添加到常量池
-        String intern = new String("intern").intern();
-        // string 的 hashCode 有缓存
-        intern.hashCode();
-        intern.equals("");
-        intern.charAt(0);
-
-
         // 优先队列
         PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
         priorityQueue.add(3);
