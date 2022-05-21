@@ -282,6 +282,8 @@ public class JDKSourceLearning {
         priorityQueue.poll();
         // 返回队列头部的元素，不出列
         priorityQueue.peek();
+        // add 里面调用了offer
+        priorityQueue.offer(4);
 
 
         // 双向队列
