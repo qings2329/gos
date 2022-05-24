@@ -6,6 +6,8 @@ import java.util.WeakHashMap;
 public class WeakReferenceDemo {
 
     public static void main(String[] args) throws InterruptedException {
+
+
         myHashMap();
         myWeakHashMap();
 

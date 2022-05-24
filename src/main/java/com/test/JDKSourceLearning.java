@@ -63,11 +63,19 @@ public class JDKSourceLearning {
         boolean stop = true;
         System.out.println("java版本号：" + System.getProperty("java.version")); // java版本号
 
+        String B = "𝄞"; // 这个就是那个音符字符，只不过由于当前的网页没支持这种编码，所以没显示。
+        String C = "\uD834\uDD1E";// 这个就是音符字符的UTF-16编码
+        System.out.println(C);
+        System.out.println(B.length());
+        System.out.println(B.codePointCount(0,B.length()));
+
+
         // 软引用 内存不足，gc才回收
         Object obj1 = new Object();
         SoftReference softReference = new SoftReference<>(obj1);
         obj1 = null;
         System.gc();
+        // 内存充足，不回收
         System.out.println("softReference: " + softReference.get());
         //  弱引用 无论内存是否充足，gc都回收
         Object obj2 = new Object();

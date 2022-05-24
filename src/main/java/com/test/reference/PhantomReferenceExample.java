@@ -19,8 +19,10 @@ public class PhantomReferenceExample {
             try {
                 int cnt = 0;
                 PhantomReference<byte[]> k;
+//                RQ.poll();
                 while ((k = (PhantomReference<byte[]>) RQ.remove()) != null) {
-                    log.info("第 {} 个回收对象，对象打印为：{}", cnt++, k);
+                    // k.get() 直接返回空
+                    log.info("第 {} 个回收对象，对象打印为：{}, 指向对象：{}", cnt++, k, k.get());
                 }
             } catch (InterruptedException ignored) {
             }

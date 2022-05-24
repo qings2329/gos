@@ -20,7 +20,7 @@ public class WeakReferenceExample {
                 int cnt = 0;
                 WeakReference<byte[]> k;
                 while ((k = (WeakReference<byte[]>) RQ.remove()) != null) {
-                    log.info("第 {} 个回收对象，对象打印为：{}", cnt++, k);
+                    log.info("第 {} 个回收对象，对象打印为：{}, 指向对象：{}", cnt++, k, k.get());
                 }
             } catch (InterruptedException ignored) {
             }
