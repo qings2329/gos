@@ -104,6 +104,7 @@ public class Test_thread {
 
         // 如何重复使用线程 ？
 //        for (; ; ) {
+        // 线程的几种状态
         if (thread4.getState() == Thread.State.NEW) {
             thread4.start();
         } else {
