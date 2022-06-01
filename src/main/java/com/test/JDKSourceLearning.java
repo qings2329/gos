@@ -61,13 +61,19 @@ public class JDKSourceLearning {
     // 运行函数
     public static void main(String[] args) throws Exception {
         boolean stop = true;
-        System.out.println("java版本号：" + System.getProperty("java.version")); // java版本号
+        System.out.println("java版本号：" + System.getProperty("java.version") + "\n"); // java版本号
+
+        String s1 = "true";
+        System.setProperty(s1, "true");
+        System.out.println(Boolean.getBoolean(s1));//true
+        System.out.println(Boolean.getBoolean("xx"));//false
+
 
         String B = "𝄞"; // 这个就是那个音符字符，只不过由于当前的网页没支持这种编码，所以没显示。
         String C = "\uD834\uDD1E";// 这个就是音符字符的UTF-16编码
         System.out.println(C);
         System.out.println(B.length());
-        System.out.println(B.codePointCount(0,B.length()));
+        System.out.println(B.codePointCount(0, B.length()));
 
 
         // 软引用 内存不足，gc才回收
