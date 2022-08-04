@@ -6,5 +6,8 @@ public class GrandChildrenClass extends ChildrenClass {
         GrandChildrenClass grandChildrenClass = new GrandChildrenClass();
         // 父类的保护成员，隔代的子代也能访问
         System.out.println(grandChildrenClass.protectedField);
+
+        // 结果是true
+        System.out.println(grandChildrenClass instanceof FatherClass);
     }
 }
