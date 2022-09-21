@@ -14,4 +14,12 @@ public class FatherClass {
     protected void test() {
         System.out.println(name + " " + privateField + " " + staticField);
     }
+
+    protected void protectedMethod() {
+        privateMethod();
+    }
+
+    private void privateMethod() {
+        System.out.println("FatherClass privateMethod");
+    }
 }
