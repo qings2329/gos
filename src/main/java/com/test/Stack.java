@@ -56,4 +56,11 @@ public class Stack {
         }
     }
 
+
+    public static void main(String[] args) {
+        // jdk的stack
+        java.util.Stack<Integer> st = new java.util.Stack<>();
+
+    }
+
 }
