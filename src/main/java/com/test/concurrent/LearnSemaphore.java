@@ -12,11 +12,13 @@ public class LearnSemaphore {
 //
 //            }
 
-            semaphore.acquire();
+            semaphore.tryAcquire();
+//            semaphore.acquire();
+
             System.out.println(semaphore.availablePermits());
             // do something
             semaphore.release();
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
