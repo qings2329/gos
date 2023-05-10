@@ -7,6 +7,7 @@ public class MaxOrderedLength {
 
     public static void main(String args[]) {
 
+        // 链表的初始化
         List<Integer> list = new ArrayList<Integer>(){{
             add(1);
             add(2);
