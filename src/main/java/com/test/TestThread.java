@@ -2,7 +2,7 @@ package com.test;
 
 import java.util.concurrent.*;
 
-public class Test_thread {
+public class TestThread {
 
     private static final int COUNT_BITS = Integer.SIZE - 3;
     private static final int CAPACITY   = (1 << COUNT_BITS) - 1;
@@ -10,6 +10,10 @@ public class Test_thread {
 
     // 阻塞队列
     public static void main(String[] args) throws Exception {
+
+        // Thread.sleep(0)的作用是什么?
+        // sleep是native方法
+        Thread.sleep(0);
 
         // 1 左移 3 位
         System.out.println(1 << 3);
